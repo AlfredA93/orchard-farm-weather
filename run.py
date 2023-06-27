@@ -30,8 +30,9 @@ def new_weather_data():
         print("Format: YYYY-MM-DD")
         date_str = input("Enter the date here:\n")
         while date_str != datetime.today().date().strftime('%Y-%m-%d'):
-            print("Error. Please try again and input today's date\n")
+            print("Error. Date not today. Please try again and input today's date\n")
             return new_weather_data()
+        
         print("Please enter the millimeters of rain today")
         rain_str = input("Enter the amount of rain here:\n")
 
