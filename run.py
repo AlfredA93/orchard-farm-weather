@@ -32,9 +32,15 @@ def new_weather_data():
         while date_str != datetime.today().date().strftime('%Y-%m-%d'):
             print("Error. Date not today. Please try again and input today's date\n")
             return new_weather_data()
-        
+       
+def new_rain_data(): 
         print("Please enter the millimeters of rain today")
         rain_str = input("Enter the amount of rain here:\n")
+        while int(rain_str) not in range(0, 1000):
+            print(f'You typed {rain_str} this seems unusual, please try again.')
+            return new_rain_data():
+        return int(rain_str)
+            
 
         print("Please enter the minimum temperature (in celcius) today")
         temps_str = input("Enter minimum temperature here:\n")
