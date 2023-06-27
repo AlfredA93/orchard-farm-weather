@@ -32,7 +32,12 @@ def new_weather_data():
         while date_str != datetime.today().date().strftime('%Y-%m-%d'):
             print("Error. Date not today. Please try again and input today's date\n")
             return new_weather_data()
-       
+        year_num = int(datetime.today().date().strftime('%Y'))
+        print(year_num)
+        day_num_of_year = datetime.now().strftime('%j')
+        print(day_num_of_year)
+        break
+   
 def new_rain_data():
     """
     User input rainfall data for the day.
@@ -86,9 +91,9 @@ def collect_data():
     Runs all program functions in correct order
     """
     new_weather_data()
-    new_rain_data()
-    new_min_temps()
-    new_max_temps()
+    #new_rain_data()
+    #new_min_temps()
+    #new_max_temps()
     
 print("Welcome to Orchard Farm Weather Data Collection.")
 
