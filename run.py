@@ -38,7 +38,7 @@ def new_rain_data():
         rain_str = input("Enter the amount of rain here:\n")
         while int(rain_str) not in range(0, 1000):
             print(f'You typed {rain_str} this seems unusual, please try again.')
-            return new_rain_data():
+            return new_rain_data()
         return int(rain_str)
             
 def new_min_temps():
@@ -46,7 +46,8 @@ def new_min_temps():
         temps_str = input("Enter minimum temperature here:\n")
         
 def new_max_temps():
-            
+        print("Please enter the maximum temperature (in celcius) today")
+        max_temps_str = input("Enter maximum temperature here:\n")
         
     
 def check_data():
