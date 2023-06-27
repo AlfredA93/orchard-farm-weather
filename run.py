@@ -21,12 +21,23 @@ weather_data = SHEET.worksheet('data')
 
 all_data = weather_data.get_all_values()
 
-print(all_data)
-
 def new_weather_data():
     """
     User input new daily weather data.
     """
+    while True:
+        print("Please enter the date today")
+        print("Format: YYYY-MM-DD")
+        date_str = input("Enter the date here:\n")
+        while date_str != datetime.today().date().strftime('%Y-%m-%d'):
+            print("Error. Please try again and input today's date\n")
+            return new_weather_data()
+        print("Please enter the millimeters of rain today")
+        rain_str = input("Enter the amount of rain here:\n")
+
+        print("Please enter the minimum temperature (in celcius) today")
+        temps_str = input("Enter minimum temperature here:\n")
+        break
     
 def check_data():
     """
@@ -49,3 +60,5 @@ def display_chart():
     Display a chart to the user comparing weather data with all 
     past data on the same day of each year.
     """
+    
+print(new_weather_data())
