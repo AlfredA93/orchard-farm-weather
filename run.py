@@ -3,6 +3,7 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 import gspread
 import plotext
+from datetime import datetime
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
