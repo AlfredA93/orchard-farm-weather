@@ -40,19 +40,18 @@ def new_weather_data():
         new_row_data.append(year_num) # Add year number to new row data list
         new_row_data.append(day_num_of_year) # Add day of year to new row data list
         print(new_row_data)
-        
+        """
+        User input rainfall data for the day.
+        """
+        print("Please enter the millimeters of rain today")
+        rain_str = input("Enter the amount of rain here:\n")
+        while int(rain_str) not in range(0, 450): # Highest UK rainfall in any 24hr period is 341.4mm
+            print(f'You typed {rain_str}mm, this seems unusual, please try again.')
+            rain_str = input("Enter today's rainfall here:\n")
+        rain_num = int(rain_str)
+        new_row_data.append(rain_num)
+        print(new_row_data)
         break
-   
-def new_rain_data():
-    """
-    User input rainfall data for the day.
-    """
-    print("Please enter the millimeters of rain today")
-    rain_str = input("Enter the amount of rain here:\n")
-    while int(rain_str) not in range(0, 450): # Highest UK rainfall in any 24hr period is 341.4mm
-        print(f'You typed {rain_str}mm, this seems unusual, please try again.')
-        return new_rain_data()
-    return int(rain_str)
             
 def new_min_temps():
     """
