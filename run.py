@@ -34,9 +34,7 @@ def new_weather_data():
             print("Error - incorrect value entered. Please try again and input today's date.\n")
             return new_weather_data() # Go back to beginning if date incorrect
         year_num = int(datetime.today().date().strftime('%Y')) # Create year number
-        print(year_num)
         day_num_of_year = int(datetime.now().strftime('%j')) # Create day of year
-        print(day_num_of_year)
         new_row_data.append(year_num) # Add year number to new row data list
         new_row_data.append(day_num_of_year) # Add day of year to new row data list
         print(new_row_data)
@@ -49,7 +47,7 @@ def new_weather_data():
             print(f'You typed {rain_str}mm, this seems unusual, please try again.')
             rain_str = input("Enter today's rainfall here:\n")
         rain_num = int(rain_str)
-        new_row_data.append(rain_num)
+        new_row_data.append(rain_num) # Add rainfall number to new row data list
         print(new_row_data)
         break
             
