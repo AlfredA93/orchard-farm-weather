@@ -21,3 +21,30 @@ weather_data = SHEET.worksheet('data')
 all_data = weather_data.get_all_values()
 
 print(all_data)
+
+def new_weather_data():
+    """
+    User input new daily weather data.
+    """
+    
+def check_data():
+    """
+    Validate user inputted data with required data types.
+    """
+    
+def new_worksheet_row():
+    """
+    Sends user input data to worksheet if it has been validated correct.
+    """
+    
+def sort_worksheet():
+    """
+    Sort worksheet to create a dataset in contrast to corresponding 
+    same day in previous years.
+    """
+    
+def display_chart():
+    """
+    Display a chart to the user comparing weather data with all 
+    past data on the same day of each year.
+    """
