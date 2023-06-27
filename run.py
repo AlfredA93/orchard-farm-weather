@@ -71,5 +71,13 @@ def display_chart():
     Display a chart to the user comparing weather data with all 
     past data on the same day of each year.
     """
+
+def collect_data():
+    new_weather_data()
+    new_rain_data()
+    new_min_temps()
+    new_max_temps()
     
-print(new_weather_data())
+print("Welcome to Orchard Farm Weather Data Collection.")
+
+collect_data()
