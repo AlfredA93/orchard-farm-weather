@@ -48,7 +48,7 @@ def new_weather_data():
             rain_num = int(input("Enter the amount of rain here:\n"))
         except ValueError:
             print(f"That wasn't a number. Please enter a number")
-            #continue
+            continue
         else:
             # #rain_str = int(input("Enter the amount of rain here:\n"))
             # while rain_num not in range(0, 450): # Highest UK rainfall in any 24hr period is 341.4mm
@@ -56,7 +56,7 @@ def new_weather_data():
             #     #rain_str = input("Enter today's rainfall here:\n")
             new_row_data.append(rain_num) # Add rainfall number to new row data list
             print(new_row_data)                
-        break
+            break
         
             
 def new_min_temps():
