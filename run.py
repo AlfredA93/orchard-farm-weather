@@ -39,8 +39,8 @@ def new_rain_data():
     """
     print("Please enter the millimeters of rain today")
     rain_str = input("Enter the amount of rain here:\n")
-    while int(rain_str) not in range(0, 1000):
-        print(f'You typed {rain_str} this seems unusual, please try again.')
+    while int(rain_str) not in range(0, 450): # Highest UK rainfall in any 24hr period is 341.4mm
+        print(f'You typed {rain_str}mm, this seems unusual, please try again.')
         return new_rain_data()
     return int(rain_str)
             
