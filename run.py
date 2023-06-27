@@ -26,16 +26,21 @@ def new_weather_data():
     User input new daily weather data.
     """
     while True:
+        new_row_data = []
         print("Please enter the date today")
         print("Format: YYYY-MM-DD")
         date_str = input("Enter the date here:\n")
         while date_str != datetime.today().date().strftime('%Y-%m-%d'):
-            print("Error. Date not today. Please try again and input today's date\n")
+            print("Error - incorrect value entered. Please try again and input today's date.\n")
             return new_weather_data()
         year_num = int(datetime.today().date().strftime('%Y'))
         print(year_num)
-        day_num_of_year = datetime.now().strftime('%j')
+        day_num_of_year = int(datetime.now().strftime('%j'))
         print(day_num_of_year)
+        new_row_data.append(year_num)
+        new_row_data.append(day_num_of_year)
+        print(new_row_data)
+        
         break
    
 def new_rain_data():
