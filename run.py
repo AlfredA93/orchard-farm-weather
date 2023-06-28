@@ -90,8 +90,24 @@ def check_inputs(new_row):
     else:
         print("Error... input wasn't 'yes' or 'no'. Try again.")
         check_inputs(new_row)
-    
-            
+
+def duplicate_find():
+    duplicates = SHEET.worksheet('data').findall("179")
+    string = str(duplicates[0])
+    print(duplicates)
+    print(string)
+    string_parts = string.split(" ")
+    print(string_parts)
+    string_row = string_parts[1]
+    print(string_row)
+    string_row_num = string_row[1:]
+    print(string_row_num)
+    string_row_2 = string_row_num.split("C")
+    print(string_row_2)
+    row = string_row_2[0]
+    print(row)
+    all_row_values = SHEET.worksheet('data').row_values(row)
+    print(all_row_values)
 
 def send_new_row(new_row):
     """
@@ -102,7 +118,7 @@ def send_new_row(new_row):
     worksheet_to_change.append_row(new_row)
     print("Successfully sent.")
     
-def main():
+#def main():
     """
     Runs all program functions in correct order
     """
@@ -116,8 +132,8 @@ def main():
     print
 print("\n")    
 print("Welcome to Orchard Farm Weather Data Collection.")
-
-main()
+duplicate_find()
+#main()
     
     
     
