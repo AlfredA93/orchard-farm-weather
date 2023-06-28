@@ -71,13 +71,16 @@ def check_inputs(new_row):
     """
     user_input_checks = {
         "Date" : datetime.today().date().strftime('%Y-%m-%d'),
-        "Rainfall" : new_row[2],
-        "Lowest Temperature" : new_row[3],
-        "Highest Temperature" : new_row[4]
+        "Rainfall (mm)" : new_row[2],
+        "Lowest Temperature (°C)" : new_row[3],
+        "Highest Temperature (°C)" : new_row[4]
     }
+        
     print("\n")
     print("Would you like the following values to be added to the spreadsheet?")
-    print(f"\n {user_input_checks}")
+    #print(f"\n {user_input_checks}")
+    for keys, values in user_input_checks.items():
+        print(keys,':', values)
     send_inputs = input("Please type 'yes' to send and enter any other character to restart programme\n")
     if send_inputs.lower() == "yes":
         send_new_row(new_row)
