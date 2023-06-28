@@ -30,9 +30,10 @@ def new_weather_data(new_row_data):
         print("Please enter the date today")
         print("Format: YYYY-MM-DD")
         date_str = input("Enter the date here:\n")
-        while date_str != datetime.today().date().strftime('%Y-%m-%d'): # Is user date entry today?
-            print("Error - incorrect value entered. Please try again and input today's date.\n")
-            return new_weather_data()                                   # Go back to beginning if date incorrect
+        if date_str != datetime.today().date().strftime('%Y-%m-%d'): # Is user date entry today?
+            print("Error - incorrect value entered. Restarting...\n")
+            new_weather_data(new_row_data)                                          # Go back to beginning if date incorrect
+            break
         year_num = int(datetime.today().date().strftime('%Y'))          # Create year number
         day_num_of_year = int(datetime.now().strftime('%j'))            # Create day of year
         new_row_data.append(year_num)                                   # Add year number to new row data list
