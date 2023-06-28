@@ -65,6 +65,18 @@ def new_weather(new_row, temp, range1, range2, record_num):
             break
     return new_row
 
+def check_inputs(new_row):
+    """
+    Check with user that they want to send inputs to spreadsheet
+    """
+    user_input_checks = {
+        "Date" : datetime.today().date(),
+        "Rainfall" : {new_row[1]},
+        "Lowest Temperature" : {new_row[2]},
+        "Highest Temperature" : {new_row[3]}
+    }
+    print(f"Inputs to be sent: {user_input_checks}")
+
 def send_new_row(new_row):
     """
     Send list of user input data to spreadsheet   
