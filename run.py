@@ -75,10 +75,10 @@ def check_inputs(new_row):
         "Lowest Temperature" : new_row[3],
         "Highest Temperature" : new_row[4]
     }
-    print(f"Inputs to be sent: {user_input_checks}")
-    print("Please type 'y' for yes, any other character to restart programme")
-    send_inputs = input("Would you like these values to be added to the spreadsheet? Type y for yes:\n")
-    if send_inputs == 'y':
+    print(f"Inputs to be sent:\n {user_input_checks}")
+    print("Would you like these values to be added to the spreadsheet?\n")
+    send_inputs = input("Please type 'y' for yes, any other character to restart programme\n")
+    if send_inputs == 'y' or 'Y':
         send_new_row(new_row)
     else: 
         print("Restarting...")
