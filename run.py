@@ -53,10 +53,10 @@ def new_weather_data():
             print(f"That wasn't a number. Please enter a number")
             continue
         else:
-            # #rain_str = int(input("Enter the amount of rain here:\n"))
-            # while rain_num not in range(0, 450): # Highest UK rainfall in any 24hr period is 341.4mm
-            #     print(f'You typed {rain_num} mm, this seems unusual, please try again.')
-            #     #rain_str = input("Enter today's rainfall here:\n")
+            while rain_num not in range(0, 450): # Checks for excessive input value beyond expected amount.
+                print(f'You typed {rain_num} mm, this seems unusual: highest recorded UK rainfall in any 24hr period is 341.4mm')
+                print(f'Please try again.')
+                rain_num = float(input("Enter the amount of rain here:\n"))    
             rain_num = round(rain_num, 1)
             new_row_data.append(rain_num) # Add rainfall number to new row data list
             print(new_row_data)                
