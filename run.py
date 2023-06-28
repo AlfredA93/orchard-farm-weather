@@ -44,8 +44,11 @@ def new_weather_data():
     """     
     while True:
         print("Please enter the millimeters of rain today")
+        print("All numbers will be converted to decimals upto 1 decimal place")
+        print("Example input: 1.23456 Example output: 1.2")
+
         try:
-            rain_num = int(input("Enter the amount of rain here:\n"))
+            rain_num = float(input("Enter the amount of rain here:\n"))
         except ValueError:
             print(f"That wasn't a number. Please enter a number")
             continue
@@ -54,6 +57,7 @@ def new_weather_data():
             # while rain_num not in range(0, 450): # Highest UK rainfall in any 24hr period is 341.4mm
             #     print(f'You typed {rain_num} mm, this seems unusual, please try again.')
             #     #rain_str = input("Enter today's rainfall here:\n")
+            rain_num = round(rain_num, 1)
             new_row_data.append(rain_num) # Add rainfall number to new row data list
             print(new_row_data)                
             break
