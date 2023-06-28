@@ -30,7 +30,7 @@ def new_date(new_row):
         print("Format: YYYY-MM-DD")
         date_str = input("Enter the date here:\n")
         if date_str != datetime.today().date().strftime('%Y-%m-%d'):    # Is user date entry today?
-            print("Error - incorrect value entered. Restarting...\n")
+            print("Error - incorrect date entered. Restarting...\n")
             new_date(new_row)                                           # Go back to beginning if date incorrect
             break
         year_num = int(datetime.today().date().strftime('%Y'))          # Create year number
@@ -46,9 +46,10 @@ def new_weather(new_row, temp, range1, range2, record_num):
     - Lowest temperature today
     - Highest temperature today
     """
+    print("\n")
     while True:
-        print(f"Please enter the {temp} today")
-        print("Please enter a whole number. Example: 12\n")
+        print(f"{temp} today.")
+        print("Please enter a whole number. Example: 12")
         try:
             user_data = int(input(f"Enter the {temp} here:\n"))
         except ValueError:
@@ -74,8 +75,9 @@ def check_inputs(new_row):
         "Lowest Temperature" : new_row[3],
         "Highest Temperature" : new_row[4]
     }
+    print("\n")
     print(f"Inputs to be sent:\n {user_input_checks}")
-    print("Would you like these values to be added to the spreadsheet?\n")
+    print("Would you like these values to be added to the spreadsheet?")
     send_inputs = input("Please type 'yes' to send and enter any other character to restart programme\n")
     if send_inputs.lower() == "yes":
         send_new_row(new_row)
@@ -103,10 +105,9 @@ def main():
     """
     new_row = []                                                          # List for new row
     new_date(new_row)                                                     # Today's date input
-    new_weather(new_row, "rainfall in mm", 0, 450, "341.4mm")             # Rainfall input
-    new_weather(new_row, "lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
-    new_weather(new_row, "highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
-    print(new_row)
+    new_weather(new_row, "Rainfall in mm", 0, 450, "341.4mm")             # Rainfall input
+    new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
+    new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
     check_inputs(new_row)
     #send_new_row(new_row)
     print
