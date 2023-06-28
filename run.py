@@ -21,7 +21,7 @@ weather_data = SHEET.worksheet('data')
 
 all_data = weather_data.get_all_values()
 
-def new_weather_data(new_row_data):
+def new_date(new_row_data):
     """
     User input new daily weather data.
     """
@@ -32,7 +32,7 @@ def new_weather_data(new_row_data):
         date_str = input("Enter the date here:\n")
         if date_str != datetime.today().date().strftime('%Y-%m-%d'): # Is user date entry today?
             print("Error - incorrect value entered. Restarting...\n")
-            new_weather_data(new_row_data)                                          # Go back to beginning if date incorrect
+            new_date(new_row_data)                                          # Go back to beginning if date incorrect
             break
         year_num = int(datetime.today().date().strftime('%Y'))          # Create year number
         day_num_of_year = int(datetime.now().strftime('%j'))            # Create day of year
@@ -40,7 +40,7 @@ def new_weather_data(new_row_data):
         new_row_data.append(day_num_of_year)                            # Add day of year to new row data list
         return new_row_data
     
-def user_weather(new_row_data, temp, range1, range2, record_num):
+def new_weather(new_row_data, temp, range1, range2, record_num):
     new_data = []
     while True:
         print(f"Please enter the {temp} today")
@@ -66,10 +66,10 @@ def main():
     Runs all program functions in correct order
     """
     new_row_data = []
-    new_weather_data(new_row_data)
-    user_weather(new_row_data, "rainfall in mm", 0, 450, 341.4)
-    user_weather(new_row_data, "highest temperature in °C", -40, 50, "40.3°C")
-    user_weather(new_row_data, "lowest temperature in °C", -40, 50, "-27.4°C")
+    new_date(new_row_data)
+    new_weather(new_row_data, "rainfall in mm", 0, 450, 341.4)
+    new_weather(new_row_data, "highest temperature in °C", -40, 50, "40.3°C")
+    new_weather(new_row_data, "lowest temperature in °C", -40, 50, "-27.4°C")
     print(new_row_data)
     
 print("Welcome to Orchard Farm Weather Data Collection.")
