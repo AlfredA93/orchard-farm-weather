@@ -68,11 +68,7 @@ def collect_data():
     """
     new_row_data = []
     new_weather_data(new_row_data)
-    
-    new_row_data.append(new_weather_data)
     user_weather(new_row_data, "rainfall in mm", 0, 450, 341.4)
-    
-    new_row_data.append(user_weather(new_row_data,"rainfall in mm", 0, 450, 341.4))
     print(new_row_data)
     
     #user_weather("highest temperature in °C", -40, 50, "40.3°C")
