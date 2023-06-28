@@ -76,7 +76,7 @@ def main():
     
 print("Welcome to Orchard Farm Weather Data Collection.")
 
-collect_data()
+main()
     
     
     
