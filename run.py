@@ -69,11 +69,11 @@ def main():
     """
     Runs all program functions in correct order
     """
-    new_row = []
-    new_date(new_row)
-    new_weather(new_row, "rainfall in mm", 0, 450, "341.4mm")
-    new_weather(new_row, "highest temperature in °C", -40, 50, "40.3°C")
-    new_weather(new_row, "lowest temperature in °C", -40, 50, "-27.4°C")
+    new_row = []                                                          # List for new row
+    new_date(new_row)                                                     # Today's date input
+    new_weather(new_row, "rainfall in mm", 0, 450, "341.4mm")             # Rainfall input
+    new_weather(new_row, "lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
+    new_weather(new_row, "highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
     print(new_row)
     
 print("Welcome to Orchard Farm Weather Data Collection.")
