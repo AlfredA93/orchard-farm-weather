@@ -76,8 +76,8 @@ def check_inputs(new_row):
         "Highest Temperature" : new_row[4]
     }
     print("\n")
-    print(f"Inputs to be sent:\n {user_input_checks}")
-    print("Would you like these values to be added to the spreadsheet?")
+    print("Would you like the following values to be added to the spreadsheet?")
+    print(f"\n {user_input_checks}")
     send_inputs = input("Please type 'yes' to send and enter any other character to restart programme\n")
     if send_inputs.lower() == "yes":
         send_new_row(new_row)
@@ -111,7 +111,7 @@ def main():
     check_inputs(new_row)
     #send_new_row(new_row)
     print
-    
+print("\n")    
 print("Welcome to Orchard Farm Weather Data Collection.")
 
 main()
