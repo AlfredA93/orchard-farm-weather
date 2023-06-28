@@ -70,12 +70,21 @@ def check_inputs(new_row):
     Check with user that they want to send inputs to spreadsheet
     """
     user_input_checks = {
-        "Date" : datetime.today().date(),
-        "Rainfall" : {new_row[1]},
-        "Lowest Temperature" : {new_row[2]},
-        "Highest Temperature" : {new_row[3]}
+        "Date" : datetime.today().date().strftime('%Y-%m-%d'),
+        "Rainfall" : new_row[2],
+        "Lowest Temperature" : new_row[3],
+        "Highest Temperature" : new_row[4]
     }
     print(f"Inputs to be sent: {user_input_checks}")
+    print("Please type 'y' for yes, any other character to restart programme")
+    send_inputs = input("Would you like these values to be added to the spreadsheet? Type y for yes:\n")
+    if send_inputs == 'y':
+        send_new_row(new_row)
+    else: 
+        print("Restarting...")
+        main()
+    
+            
 
 def send_new_row(new_row):
     """
@@ -96,7 +105,8 @@ def main():
     new_weather(new_row, "lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
     new_weather(new_row, "highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
     print(new_row)
-    send_new_row(new_row)
+    check_inputs(new_row)
+    #send_new_row(new_row)
     print
     
 print("Welcome to Orchard Farm Weather Data Collection.")
