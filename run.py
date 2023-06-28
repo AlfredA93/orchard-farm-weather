@@ -65,6 +65,15 @@ def new_weather(new_row, temp, range1, range2, record_num):
             break
     return new_row
 
+def send_new_row(new_row):
+    """
+    Send list of user input data to spreadsheet   
+    """
+    print("Sending data to spreadsheet...")
+    worksheet_to_change = SHEET.worksheet("data")
+    worksheet_to_change.append_row(new_row)
+    print("Successfully sent.")
+    
 def main():
     """
     Runs all program functions in correct order
@@ -75,6 +84,8 @@ def main():
     new_weather(new_row, "lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
     new_weather(new_row, "highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
     print(new_row)
+    send_new_row(new_row)
+    print
     
 print("Welcome to Orchard Farm Weather Data Collection.")
 
