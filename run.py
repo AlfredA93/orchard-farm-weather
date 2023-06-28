@@ -46,7 +46,6 @@ def new_weather(new_row, temp, range1, range2, record_num):
     - Lowest temperature today
     - Highest temperature today
     """
-
     while True:
         print(f"Please enter the {temp} today")
         print("All numbers will be converted to decimals upto 1 decimal place")
