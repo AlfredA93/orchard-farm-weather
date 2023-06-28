@@ -74,8 +74,12 @@ def new_weather_data():
             print(f"That wasn't a number. Please enter a number")
             continue
         else:
+            while temp_min_num not in range(-45, 45): # Checks for excessive input value beyond expected amount.
+                print("You typed {temp_min_num} this seems unusual: coldest day on UK records = -27.2 'C")
+                print(f'Please try again.')
+                temp_min_num = float(input("Enter the lowest temperature here:\n"))    
             temp_min_num = round(temp_min_num, 1)
-            new_row_data.append(temp_min_num) # Add minimum temperature number to new row data list
+            new_row_data.append(temp_min_num) # Add rainfall number to new row data list
             print(new_row_data)                
             break
         
