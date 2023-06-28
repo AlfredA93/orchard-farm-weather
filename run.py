@@ -48,10 +48,9 @@ def new_weather(new_row, temp, range1, range2, record_num):
     """
     while True:
         print(f"Please enter the {temp} today")
-        print("All numbers will be converted to decimals upto 1 decimal place")
-        print("Example input: 1.23456 Example output: 1.2")
+        print("Please enter a whole number. Example: 12\n")
         try:
-            user_data = float(input(f"Enter the {temp} here:\n"))
+            user_data = int(input(f"Enter the {temp} here:\n"))
         except ValueError:
             print("That wasn't a number. Please enter a number")        # If user doesn't enter a number, throws error.
             continue
