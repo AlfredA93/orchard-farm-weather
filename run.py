@@ -49,7 +49,7 @@ def user_weather(temp, range1, range2, record_num):
         try:
             user_data = float(input(f"Enter the {temp} here:\n"))
         except ValueError:
-            print("That wasn't a number. Please enter a number")
+            print("That wasn't a number. Please enter a number") # If user doesn't enter a number, throws error.
             continue
         else:
             while user_data not in range(range1, range2): # Checks for excessive input value beyond expected amount.
@@ -57,7 +57,7 @@ def user_weather(temp, range1, range2, record_num):
                 print(f'Please try again.')
                 user_data = float(input(f"Enter the {temp} here:\n"))    
             user_data = round(user_data, 1)
-            new_data.append(user_data) # Add min temperature number to new row data list
+            new_data.append(user_data) # Add new data to new row data list
             print(new_data)                
             break
 
