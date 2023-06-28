@@ -76,12 +76,15 @@ def check_inputs(new_row):
     }
     print(f"Inputs to be sent:\n {user_input_checks}")
     print("Would you like these values to be added to the spreadsheet?\n")
-    send_inputs = input("Please type 'y' for yes, any other character to restart programme\n")
-    if send_inputs == 'y' or 'Y':
+    send_inputs = input("Please type 'yes' to send and enter any other character to restart programme\n")
+    if send_inputs.lower() == "yes":
         send_new_row(new_row)
-    else: 
+    elif send_inputs.lower() == 'no':
         print("Restarting...")
         main()
+    else:
+        print("Error... input wasn't 'yes' or 'no'. Try again.")
+        check_inputs(new_row)
     
             
 
