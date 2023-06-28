@@ -39,70 +39,97 @@ def new_weather_data():
         new_row_data.append(day_num_of_year) # Add day of year to new row data list
         print(new_row_data)
         break
-    """
-    User input rainfall data for the day.
-    """     
+    
+def user_weather(temp, range1, range2, record_num):
+    new_data = []
     while True:
-        print("Please enter the millimeters of rain today")
+        print(f"Please enter the {temp} today")
         print("All numbers will be converted to decimals upto 1 decimal place")
         print("Example input: 1.23456 Example output: 1.2")
+        try:
+            user_data = float(input(f"Enter the {temp} here:\n"))
+        except ValueError:
+            print("That wasn't a number. Please enter a number")
+            continue
+        else:
+            while user_data not in range(range1, range2): # Checks for excessive input value beyond expected amount.
+                print(f"You typed {user_data} this seems unusual: Current UK record = {record_num}")
+                print('Please try again.')
+                user_data = float(input(f"Enter the {temp} here:\n"))    
+            user_data = round(user_data, 1)
+            new_data.append(user_data) # Add min temperature number to new row data list
+            print(new_data)                
+            break
 
-        try:
-            rain_num = float(input("Enter the amount of rain here:\n"))
-        except ValueError:
-            print(f"That wasn't a number. Please enter a number")
-            continue
-        else:
-            while rain_num not in range(0, 450): # Checks for excessive input value beyond expected amount.
-                print(f'You typed {rain_num} mm, this seems unusual: highest recorded UK rainfall in any 24hr period is 341.4mm')
-                print(f'Please try again.')
-                rain_num = float(input("Enter the amount of rain here:\n"))    
-            rain_num = round(rain_num, 1)
-            new_row_data.append(rain_num) # Add rainfall number to new row data list
-            print(new_row_data)                
-            break
-    """
-    User input minimum temperature data for the day.
-    """
-    while True:
-        print("Please enter the lowest temperature of rain today")
-        print("All numbers will be converted to decimals upto 1 decimal place")
-        print("Example input: 1.23456 Example output: 1.2")
-        try:
-            temp_min_num = float(input("Enter the lowest temperature here:\n"))
-        except ValueError:
-            print(f"That wasn't a number. Please enter a number")
-            continue
-        else:
-            while temp_min_num not in range(-40, 50): # Checks for excessive input value beyond expected amount.
-                print("You typed {temp_min_num} this seems unusual: coldest day on UK records = -27.2 'C")
-                print(f'Please try again.')
-                temp_min_num = float(input("Enter the lowest temperature here:\n"))    
-            temp_min_num = round(temp_min_num, 1)
-            new_row_data.append(temp_min_num) # Add min temperature number to new row data list
-            print(new_row_data)                
-            break
-    """
-    User input maximum temperature data for the day.
-    """    
-    while True:
-        print("Please enter the maximum temperature of rain today")
-        print("All numbers will be converted to decimals upto 1 decimal place")
-        print("Example input: 1.23456 Example output: 1.2")
-        try:
-            temp_max_num = float(input("Enter the highest temperature here:\n"))
-        except ValueError:
-            print(f"That wasn't a number. Please enter a number")
-            continue
-        else:
-            while temp_max_num not in range(-40, 50): # Checks for excessive input value beyond expected amount.
-                print("You typed {temp_max_num} this seems unusual: hottest day on UK records = 40.3 'C")
-                print(f'Please try again.')
-                temp_max_num = float(input("Enter the highest temperature here:\n"))    
-            temp_max_num = round(temp_max_num, 1)
-            new_row_data.append(temp_max_num) # Add max temperature number to new row data list
-            print(new_row_data)                
-            break
+    
+    
+    
+    
+
+    # """
+    # User input rainfall data for the day.
+    # """     
+    # while True:
+    #     print("Please enter the millimeters of rain today")
+    #     print("All numbers will be converted to decimals upto 1 decimal place")
+    #     print("Example input: 1.23456 Example output: 1.2")
+
+    #     try:
+    #         rain_num = float(input("Enter the amount of rain here:\n"))
+    #     except ValueError:
+    #         print(f"That wasn't a number. Please enter a number")
+    #         continue
+    #     else:
+    #         while rain_num not in range(0, 450): # Checks for excessive input value beyond expected amount.
+    #             print(f'You typed {rain_num} mm, this seems unusual: highest recorded UK rainfall in any 24hr period is 341.4mm')
+    #             print(f'Please try again.')
+    #             rain_num = float(input("Enter the amount of rain here:\n"))    
+    #         rain_num = round(rain_num, 1)
+    #         new_row_data.append(rain_num) # Add rainfall number to new row data list
+    #         print(new_row_data)                
+    #         break
+    # """
+    # User input minimum temperature data for the day.
+    # """
+    # while True:
+    #     print("Please enter the lowest temperature of rain today")
+    #     print("All numbers will be converted to decimals upto 1 decimal place")
+    #     print("Example input: 1.23456 Example output: 1.2")
+    #     try:
+    #         temp_min_num = float(input("Enter the lowest temperature here:\n"))
+    #     except ValueError:
+    #         print(f"That wasn't a number. Please enter a number")
+    #         continue
+    #     else:
+    #         while temp_min_num not in range(-40, 50): # Checks for excessive input value beyond expected amount.
+    #             print("You typed {temp_min_num} this seems unusual: coldest day on UK records = -27.2 'C")
+    #             print(f'Please try again.')
+    #             temp_min_num = float(input("Enter the lowest temperature here:\n"))    
+    #         temp_min_num = round(temp_min_num, 1)
+    #         new_row_data.append(temp_min_num) # Add min temperature number to new row data list
+    #         print(new_row_data)                
+    #         break
+    # """
+    # User input maximum temperature data for the day.
+    # """    
+    # while True:
+    #     print("Please enter the maximum temperature of rain today")
+    #     print("All numbers will be converted to decimals upto 1 decimal place")
+    #     print("Example input: 1.23456 Example output: 1.2")
+    #     try:
+    #         temp_max_num = float(input("Enter the highest temperature here:\n"))
+    #     except ValueError:
+    #         print(f"That wasn't a number. Please enter a number")
+    #         continue
+    #     else:
+    #         while temp_max_num not in range(-40, 50): # Checks for excessive input value beyond expected amount.
+    #             print("You typed {temp_max_num} this seems unusual: hottest day on UK records = 40.3 'C")
+    #             print(f'Please try again.')
+    #             temp_max_num = float(input("Enter the highest temperature here:\n"))    
+    #         temp_max_num = round(temp_max_num, 1)
+    #         new_row_data.append(temp_max_num) # Add max temperature number to new row data list
+    #         print(new_row_data)                
+    #         break
         
             
 def new_min_temps():
@@ -147,6 +174,10 @@ def collect_data():
     Runs all program functions in correct order
     """
     new_weather_data()
+    user_weather("rainfall in mm", 0, 450, 341.4)
+    #user_weather("highest temperature in °C", -40, 50, 40.3°C)
+    #user_weather("lowest temperature in °C", -40, 50, -27.4°C)
+    
     #new_rain_data()
     #new_min_temps()
     #new_max_temps()
