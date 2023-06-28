@@ -61,6 +61,29 @@ def user_weather(new_row_data, temp, range1, range2, record_num):
             print(new_data)                
             break
     return new_row_data
+
+def collect_data():
+    """
+    Runs all program functions in correct order
+    """
+    new_row_data = []
+    new_weather_data(new_row_data)
+    new_row_data.append(new_weather_data)
+    user_weather(new_row_data, "rainfall in mm", 0, 450, 341.4)
+    new_row_data.append(user_weather(new_row_data,"rainfall in mm", 0, 450, 341.4))
+    print(new_row_data)
+    
+    #user_weather("highest temperature in °C", -40, 50, "40.3°C")
+    #user_weather("lowest temperature in °C", -40, 50, "-27.4°C")
+    
+print("Welcome to Orchard Farm Weather Data Collection.")
+
+collect_data()
+    
+    
+    
+# Functions below for use later
+    
     
 def new_worksheet_row():
     """
@@ -79,22 +102,7 @@ def display_chart():
     past data on the same day of each year.
     """
 
-def collect_data():
-    """
-    Runs all program functions in correct order
-    """
-    new_row_data = []
-    new_weather_data(new_row_data)
-    new_row_data.append(new_weather_data)
-    user_weather(new_row_data, "rainfall in mm", 0, 450, 341.4)
-    new_row_data.append(user_weather(new_row_data,"rainfall in mm", 0, 450, 341.4))
-    print(new_row_data)
-    #user_weather("highest temperature in °C", -40, 50, "40.3°C")
-    #user_weather("lowest temperature in °C", -40, 50, "-27.4°C")
-    
-print("Welcome to Orchard Farm Weather Data Collection.")
 
-collect_data()
 
 
     # """
