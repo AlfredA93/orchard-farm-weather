@@ -60,11 +60,41 @@ def user_weather(temp, range1, range2, record_num):
             new_data.append(user_data) # Add new data to new row data list
             print(new_data)                
             break
+    
+def new_worksheet_row():
+    """
+    Sends user input data to worksheet if it has been validated correct.
+    """
+    
+def sort_worksheet():
+    """
+    Sort worksheet to create a dataset in contrast to corresponding 
+    same day in previous years.
+    """
+    
+def display_chart():
+    """
+    Display a chart to the user comparing weather data with all 
+    past data on the same day of each year.
+    """
 
+def collect_data():
+    """
+    Runs all program functions in correct order
+    """
+    new_weather_data()
+    user_weather("rainfall in mm", 0, 450, 341.4)
+    #user_weather("highest temperature in °C", -40, 50, 40.3°C)
+    #user_weather("lowest temperature in °C", -40, 50, -27.4°C)
     
+    #new_rain_data()
+    #new_min_temps()
+    #new_max_temps()
     
-    
-    
+print("Welcome to Orchard Farm Weather Data Collection.")
+
+collect_data()
+
 
     # """
     # User input rainfall data for the day.
@@ -130,58 +160,3 @@ def user_weather(temp, range1, range2, record_num):
     #         new_row_data.append(temp_max_num) # Add max temperature number to new row data list
     #         print(new_row_data)                
     #         break
-        
-            
-def new_min_temps():
-    """
-    User input minimum temperature for the day.
-    """
-    print("Please enter the minimum temperature (in celcius) today")
-    temps_str = input("Enter minimum temperature here:\n")
-        
-def new_max_temps():
-    """
-    User input maximum temperature for the day.
-    """
-    print("Please enter the maximum temperature (in celcius) today")
-    max_temps_str = input("Enter maximum temperature here:\n")
-        
-    
-def check_data():
-    """
-    Validate user inputted data with required data types.
-    """
-    
-def new_worksheet_row():
-    """
-    Sends user input data to worksheet if it has been validated correct.
-    """
-    
-def sort_worksheet():
-    """
-    Sort worksheet to create a dataset in contrast to corresponding 
-    same day in previous years.
-    """
-    
-def display_chart():
-    """
-    Display a chart to the user comparing weather data with all 
-    past data on the same day of each year.
-    """
-
-def collect_data():
-    """
-    Runs all program functions in correct order
-    """
-    new_weather_data()
-    user_weather("rainfall in mm", 0, 450, 341.4)
-    #user_weather("highest temperature in °C", -40, 50, 40.3°C)
-    #user_weather("lowest temperature in °C", -40, 50, -27.4°C)
-    
-    #new_rain_data()
-    #new_min_temps()
-    #new_max_temps()
-    
-print("Welcome to Orchard Farm Weather Data Collection.")
-
-collect_data()
