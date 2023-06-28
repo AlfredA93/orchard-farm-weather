@@ -23,25 +23,30 @@ all_data = weather_data.get_all_values()
 
 def new_date(new_row):
     """
-    User input new daily weather data.
+    User input today's date function.
     """
     while True:
-        #new_row_data = []                                              # Set up an empty list for user values to be inputted
         print("Please enter the date today")
         print("Format: YYYY-MM-DD")
         date_str = input("Enter the date here:\n")
-        if date_str != datetime.today().date().strftime('%Y-%m-%d'): # Is user date entry today?
+        if date_str != datetime.today().date().strftime('%Y-%m-%d'):    # Is user date entry today?
             print("Error - incorrect value entered. Restarting...\n")
-            new_date(new_row)                                          # Go back to beginning if date incorrect
+            new_date(new_row)                                           # Go back to beginning if date incorrect
             break
         year_num = int(datetime.today().date().strftime('%Y'))          # Create year number
         day_num_of_year = int(datetime.now().strftime('%j'))            # Create day of year
-        new_row.append(year_num)                                   # Add year number to new row data list
-        new_row.append(day_num_of_year)                            # Add day of year to new row data list
+        new_row.append(year_num)                                        # Add year number to new row data list
+        new_row.append(day_num_of_year)                                 # Add day of year to new row data list
         return new_row
     
 def new_weather(new_row, temp, range1, range2, record_num):
-    new_data = []
+    """
+    Master function for 3 user inputs
+    - Rainfall in mm
+    - Lowest temperature today
+    - Highest temperature today
+    """
+
     while True:
         print(f"Please enter the {temp} today")
         print("All numbers will be converted to decimals upto 1 decimal place")
@@ -57,7 +62,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
                 print(f'Please try again.')
                 user_data = float(input(f"Enter the {temp} here:\n"))    
             user_data = round(user_data, 1)
-            new_row.append(user_data)                                  # Add new data to new row data list               
+            new_row.append(user_data)                                   # Add new data to new row data list               
             break
     return new_row
 
