@@ -38,9 +38,9 @@ def new_weather_data():
         new_row_data.append(year_num) # Add year number to new row data list
         new_row_data.append(day_num_of_year) # Add day of year to new row data list
         print(new_row_data)
-        return new_row_data
+        break
     
-def user_weather(new_row_data, temp, range1, range2, record_num):
+def user_weather(temp, range1, range2, record_num):
     new_data = []
     while True:
         print(f"Please enter the {temp} today")
@@ -54,12 +54,12 @@ def user_weather(new_row_data, temp, range1, range2, record_num):
         else:
             while user_data not in range(range1, range2): # Checks for excessive input value beyond expected amount.
                 print(f"You typed {user_data} this seems unusual: Current UK record = {record_num}")
-                print('Please try again.')
+                print(f'Please try again.')
                 user_data = float(input(f"Enter the {temp} here:\n"))    
             user_data = round(user_data, 1)
-            new_row_data.append(user_data) # Add min temperature number to new row data list
-            print(new_row_data)                
-            return new_row_data
+            new_data.append(user_data) # Add min temperature number to new row data list
+            print(new_data)                
+            break
 
     
     
@@ -174,8 +174,7 @@ def collect_data():
     Runs all program functions in correct order
     """
     new_weather_data()
-    new_row_data = new_weather_data()
-    user_weather(new_row_data, "rainfall in mm", 0, 450, 341.4)
+    user_weather("rainfall in mm", 0, 450, 341.4)
     #user_weather("highest temperature in °C", -40, 50, 40.3°C)
     #user_weather("lowest temperature in °C", -40, 50, -27.4°C)
     
