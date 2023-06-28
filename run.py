@@ -26,17 +26,17 @@ def new_weather_data(new_row_data):
     User input new daily weather data.
     """
     while True:
-        new_row_data = [] # Set up an empty list for user values to be inputted
+        #new_row_data = []                                              # Set up an empty list for user values to be inputted
         print("Please enter the date today")
         print("Format: YYYY-MM-DD")
         date_str = input("Enter the date here:\n")
         while date_str != datetime.today().date().strftime('%Y-%m-%d'): # Is user date entry today?
             print("Error - incorrect value entered. Please try again and input today's date.\n")
-            return new_weather_data() # Go back to beginning if date incorrect
-        year_num = int(datetime.today().date().strftime('%Y')) # Create year number
-        day_num_of_year = int(datetime.now().strftime('%j')) # Create day of year
-        new_row_data.append(year_num) # Add year number to new row data list
-        new_row_data.append(day_num_of_year) # Add day of year to new row data list
+            return new_weather_data()                                   # Go back to beginning if date incorrect
+        year_num = int(datetime.today().date().strftime('%Y'))          # Create year number
+        day_num_of_year = int(datetime.now().strftime('%j'))            # Create day of year
+        new_row_data.append(year_num)                                   # Add year number to new row data list
+        new_row_data.append(day_num_of_year)                            # Add day of year to new row data list
         print(new_row_data)
         return new_row_data
     
@@ -49,15 +49,15 @@ def user_weather(new_row_data, temp, range1, range2, record_num):
         try:
             user_data = float(input(f"Enter the {temp} here:\n"))
         except ValueError:
-            print("That wasn't a number. Please enter a number") # If user doesn't enter a number, throws error.
+            print("That wasn't a number. Please enter a number")        # If user doesn't enter a number, throws error.
             continue
         else:
-            while user_data not in range(range1, range2): # Checks for excessive input value beyond expected amount.
+            while user_data not in range(range1, range2):               # Checks for excessive input value beyond expected amount.
                 print(f"You typed {user_data} this seems unusual: Current UK record = {record_num}")
                 print(f'Please try again.')
                 user_data = float(input(f"Enter the {temp} here:\n"))    
             user_data = round(user_data, 1)
-            new_data.append(user_data) # Add new data to new row data list
+            new_data.append(user_data)                                  # Add new data to new row data list
             print(new_data)                
             break
     return new_row_data
@@ -68,8 +68,10 @@ def collect_data():
     """
     new_row_data = []
     new_weather_data(new_row_data)
+    
     new_row_data.append(new_weather_data)
     user_weather(new_row_data, "rainfall in mm", 0, 450, 341.4)
+    
     new_row_data.append(user_weather(new_row_data,"rainfall in mm", 0, 450, 341.4))
     print(new_row_data)
     
