@@ -21,7 +21,7 @@ weather_data = SHEET.worksheet('data')
 
 all_data = weather_data.get_all_values()
 
-def new_date(new_row_data):
+def new_date(new_row):
     """
     User input new daily weather data.
     """
@@ -32,15 +32,15 @@ def new_date(new_row_data):
         date_str = input("Enter the date here:\n")
         if date_str != datetime.today().date().strftime('%Y-%m-%d'): # Is user date entry today?
             print("Error - incorrect value entered. Restarting...\n")
-            new_date(new_row_data)                                          # Go back to beginning if date incorrect
+            new_date(new_row)                                          # Go back to beginning if date incorrect
             break
         year_num = int(datetime.today().date().strftime('%Y'))          # Create year number
         day_num_of_year = int(datetime.now().strftime('%j'))            # Create day of year
-        new_row_data.append(year_num)                                   # Add year number to new row data list
-        new_row_data.append(day_num_of_year)                            # Add day of year to new row data list
-        return new_row_data
+        new_row.append(year_num)                                   # Add year number to new row data list
+        new_row.append(day_num_of_year)                            # Add day of year to new row data list
+        return new_row
     
-def new_weather(new_row_data, temp, range1, range2, record_num):
+def new_weather(new_row, temp, range1, range2, record_num):
     new_data = []
     while True:
         print(f"Please enter the {temp} today")
@@ -57,20 +57,20 @@ def new_weather(new_row_data, temp, range1, range2, record_num):
                 print(f'Please try again.')
                 user_data = float(input(f"Enter the {temp} here:\n"))    
             user_data = round(user_data, 1)
-            new_row_data.append(user_data)                                  # Add new data to new row data list               
+            new_row.append(user_data)                                  # Add new data to new row data list               
             break
-    return new_row_data
+    return new_row
 
 def main():
     """
     Runs all program functions in correct order
     """
-    new_row_data = []
-    new_date(new_row_data)
-    new_weather(new_row_data, "rainfall in mm", 0, 450, 341.4)
-    new_weather(new_row_data, "highest temperature in °C", -40, 50, "40.3°C")
-    new_weather(new_row_data, "lowest temperature in °C", -40, 50, "-27.4°C")
-    print(new_row_data)
+    new_row = []
+    new_date(new_row)
+    new_weather(new_row, "rainfall in mm", 0, 450, 341.4)
+    new_weather(new_row, "highest temperature in °C", -40, 50, "40.3°C")
+    new_weather(new_row, "lowest temperature in °C", -40, 50, "-27.4°C")
+    print(new_row)
     
 print("Welcome to Orchard Farm Weather Data Collection.")
 
