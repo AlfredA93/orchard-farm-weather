@@ -60,7 +60,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
             while user_data not in range(range1, range2):               # Checks for excessive input value beyond expected amount.
                 print(f"You typed {user_data} this seems unusual: Current UK record = {record_num}")
                 print(f'Please try again.')
-                user_data = float(input(f"Enter the {temp} here:\n"))    
+                user_data = float(input(f"Enter today's {temp} here:\n"))    
             user_data = round(user_data, 1)
             new_row.append(user_data)                                   # Add new data to new row data list               
             break
@@ -72,7 +72,7 @@ def main():
     """
     new_row = []
     new_date(new_row)
-    new_weather(new_row, "rainfall in mm", 0, 450, 341.4)
+    new_weather(new_row, "rainfall in mm", 0, 450, "341.4mm")
     new_weather(new_row, "highest temperature in °C", -40, 50, "40.3°C")
     new_weather(new_row, "lowest temperature in °C", -40, 50, "-27.4°C")
     print(new_row)
