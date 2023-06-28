@@ -37,7 +37,6 @@ def new_weather_data(new_row_data):
         day_num_of_year = int(datetime.now().strftime('%j'))            # Create day of year
         new_row_data.append(year_num)                                   # Add year number to new row data list
         new_row_data.append(day_num_of_year)                            # Add day of year to new row data list
-        print(new_row_data)
         return new_row_data
     
 def user_weather(new_row_data, temp, range1, range2, record_num):
@@ -57,8 +56,7 @@ def user_weather(new_row_data, temp, range1, range2, record_num):
                 print(f'Please try again.')
                 user_data = float(input(f"Enter the {temp} here:\n"))    
             user_data = round(user_data, 1)
-            new_data.append(user_data)                                  # Add new data to new row data list
-            print(new_data)                
+            new_row_data.append(user_data)                                  # Add new data to new row data list               
             break
     return new_row_data
 
@@ -69,10 +67,9 @@ def main():
     new_row_data = []
     new_weather_data(new_row_data)
     user_weather(new_row_data, "rainfall in mm", 0, 450, 341.4)
+    user_weather(new_row_data, "highest temperature in °C", -40, 50, "40.3°C")
+    user_weather(new_row_data, "lowest temperature in °C", -40, 50, "-27.4°C")
     print(new_row_data)
-    
-    #user_weather("highest temperature in °C", -40, 50, "40.3°C")
-    #user_weather("lowest temperature in °C", -40, 50, "-27.4°C")
     
 print("Welcome to Orchard Farm Weather Data Collection.")
 
