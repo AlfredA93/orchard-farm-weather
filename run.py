@@ -62,7 +62,7 @@ def user_weather(new_row_data, temp, range1, range2, record_num):
             break
     return new_row_data
 
-def collect_data():
+def main():
     """
     Runs all program functions in correct order
     """
