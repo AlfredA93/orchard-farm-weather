@@ -21,7 +21,7 @@ weather_data = SHEET.worksheet('data')
 
 all_data = weather_data.get_all_values()
 
-def new_weather_data():
+def new_weather_data(new_row_data):
     """
     User input new daily weather data.
     """
@@ -38,9 +38,9 @@ def new_weather_data():
         new_row_data.append(year_num) # Add year number to new row data list
         new_row_data.append(day_num_of_year) # Add day of year to new row data list
         print(new_row_data)
-        break
+        return new_row_data
     
-def user_weather(temp, range1, range2, record_num):
+def user_weather(new_row_data, temp, range1, range2, record_num):
     new_data = []
     while True:
         print(f"Please enter the {temp} today")
@@ -60,6 +60,7 @@ def user_weather(temp, range1, range2, record_num):
             new_data.append(user_data) # Add new data to new row data list
             print(new_data)                
             break
+    return new_row_data
     
 def new_worksheet_row():
     """
@@ -82,14 +83,14 @@ def collect_data():
     """
     Runs all program functions in correct order
     """
-    new_weather_data()
-    user_weather("rainfall in mm", 0, 450, 341.4)
-    #user_weather("highest temperature in °C", -40, 50, 40.3°C)
-    #user_weather("lowest temperature in °C", -40, 50, -27.4°C)
-    
-    #new_rain_data()
-    #new_min_temps()
-    #new_max_temps()
+    new_row_data = []
+    new_weather_data(new_row_data)
+    new_row_data.append(new_weather_data)
+    user_weather(new_row_data, "rainfall in mm", 0, 450, 341.4)
+    new_row_data.append(user_weather(new_row_data,"rainfall in mm", 0, 450, 341.4))
+    print(new_row_data)
+    #user_weather("highest temperature in °C", -40, 50, "40.3°C")
+    #user_weather("lowest temperature in °C", -40, 50, "-27.4°C")
     
 print("Welcome to Orchard Farm Weather Data Collection.")
 
