@@ -82,6 +82,27 @@ def new_weather_data():
             new_row_data.append(temp_min_num) # Add rainfall number to new row data list
             print(new_row_data)                
             break
+    """
+    User input maximum temperature data for the day.
+    """    
+    while True:
+        print("Please enter the maximum temperature of rain today")
+        print("All numbers will be converted to decimals upto 1 decimal place")
+        print("Example input: 1.23456 Example output: 1.2")
+        try:
+            temp_max_num = float(input("Enter the highest temperature here:\n"))
+        except ValueError:
+            print(f"That wasn't a number. Please enter a number")
+            continue
+        else:
+            while temp_max_num not in range(-45, 49): # Checks for excessive input value beyond expected amount.
+                print("You typed {temp_max_num} this seems unusual: hottest day on UK records = 40.3 'C")
+                print(f'Please try again.')
+                temp_max_num = float(input("Enter the highest temperature here:\n"))    
+            temp_max_num = round(temp_max_num, 1)
+            new_row_data.append(temp_max_num) # Add max temperature number to new row data list
+            print(new_row_data)                
+            break
         
             
 def new_min_temps():
