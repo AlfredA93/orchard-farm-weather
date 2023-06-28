@@ -61,6 +61,23 @@ def new_weather_data():
             new_row_data.append(rain_num) # Add rainfall number to new row data list
             print(new_row_data)                
             break
+    """
+    User input minimum temperature data for the day.
+    """
+    while True:
+        print("Please enter the lowest temperature of rain today")
+        print("All numbers will be converted to decimals upto 1 decimal place")
+        print("Example input: 1.23456 Example output: 1.2")
+        try:
+            temp_min_num = float(input("Enter the lowest temperature here:\n"))
+        except ValueError:
+            print(f"That wasn't a number. Please enter a number")
+            continue
+        else:
+            temp_min_num = round(temp_min_num, 1)
+            new_row_data.append(temp_min_num) # Add minimum temperature number to new row data list
+            print(new_row_data)                
+            break
         
             
 def new_min_temps():
