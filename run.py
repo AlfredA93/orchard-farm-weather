@@ -59,7 +59,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
             while user_data not in range(range1, range2):               # Checks for excessive input value beyond expected amount.
                 print(f"You typed {user_data} this seems unusual: Current UK record = {record_num}")
                 print(f'Please try again.')
-                user_data = float(input(f"Enter today's {temp} here:\n"))    
+                user_data = int(input(f"Enter today's {temp} here:\n"))    
             user_data = round(user_data, 1)
             new_row.append(user_data)                                   # Add new data to new row data list               
             break
@@ -81,7 +81,7 @@ def check_inputs(new_row):
     #print(f"\n {user_input_checks}")
     for keys, values in user_input_checks.items():
         print(keys,':', values)
-    send_inputs = input("Please type 'yes' to send and enter any other character to restart programme\n")
+    send_inputs = input("Please type 'yes' to send and 'no' to restart programme\n")
     if send_inputs.lower() == "yes":
         send_new_row(new_row)
     elif send_inputs.lower() == 'no':
@@ -108,7 +108,7 @@ def main():
     """
     new_row = []                                                          # List for new row
     new_date(new_row)                                                     # Today's date input
-    new_weather(new_row, "Rainfall in mm", 0, 450, "341.4mm")             # Rainfall input
+    new_weather(new_row, "Rainfall in millimeters", 0, 450, "341.4mm")             # Rainfall input
     new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
     new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
     check_inputs(new_row)
