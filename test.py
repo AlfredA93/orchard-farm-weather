@@ -85,8 +85,7 @@ def send_new_row(new_row):
     Send list of user input data to spreadsheet   
     """
     print("Sending data to spreadsheet...")
-    worksheet_to_change = SHEET.worksheet("data")
-    worksheet_to_change.append_row(new_row)
+    
     print("Successfully sent.\n")
     
 def find_rows():
