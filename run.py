@@ -46,7 +46,6 @@ def new_weather(new_row, temp, range1, range2, record_num):
     - Lowest temperature today
     - Highest temperature today
     """
-    print("\n")
     while True:
         print(f"{temp} today.")
         print("Please enter a whole number. Example: 12")
@@ -80,7 +79,7 @@ def check_inputs(new_row):
     }
         
     print("\n")
-    print("Would you like the following values to be added to the spreadsheet?")
+    print("Would you like the following values to be added to the spreadsheet?\n")
     #print(f"\n {user_input_checks}")
     for keys, values in user_input_checks.items():
         print(keys,':', values)
@@ -129,7 +128,7 @@ def duplicate_find():
     print("Table of Weather Data since 1993:")
     for data in range(len(row_summary)):
         print(f"Year: {row_summary[data][0]}. Rainfall: {row_summary[data][2]}mm Min Temp: {row_summary[data][3]}°C Max Temp: {row_summary[data][4]}°C")
-        print("\n")
+    print("\n")
 
 def send_new_row(new_row):
     """
@@ -142,7 +141,7 @@ def send_new_row(new_row):
     
 def thank_you():
     print("Thank you for collecting data with Orchard Farm Weather Data Collection.")
-    print("This will help with all future crop plans alongwith the understanding of climate change in our area.")
+    print("This will help with all future crop plans alongwith the understanding of climate change in our area.\n")
     
 def main():
     """
