@@ -85,9 +85,12 @@ def check_inputs(new_row):
 
 def find_rows():
     day_of_year = int(datetime.now().strftime('%j')) 
-    all_rows = DF.loc[DF['DOY'] == day_of_year]    
+    all_rows = DF.loc[DF['DOY'] == day_of_year]
+    years = all_rows["YEAR"].tolist()
+    rainfall = all_rows["RAINFALL"].tolist()
+    print(years)
+    print(rainfall)
     
-    print(all_rows)
 
 
 def duplicate_find():
