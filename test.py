@@ -5,7 +5,7 @@ import plotext
 from datetime import datetime
 import pandas as pd
 
-DF = pd.read_csv('orchard_farm_weather_data.csv')
+DF = pd.read_csv('orchard_farm_data.csv')
 
 def new_date(new_row):
     """
