@@ -85,13 +85,15 @@ def send_new_row(new_row):
     """
     Send list of user input data to spreadsheet   
     """
-    print("Sending data to spreadsheet...")
+    print("Sending data to spreadsheet.")
     
-    file = open('orchard_farm_data.csv', 'a', newline = '')
+    file = open("orchard_farm_data.csv", "a", newline = "")
+    print("File opened...")
     writer = csv.writer(file)
     writer.writerow(new_row)
-    
-    print("Successfully sent.\n")
+    print("...new data successfully written...")
+    file.close()
+    print("... file closed.\n")
     
 def find_rows():
     day_of_year = int(datetime.now().strftime('%j')) 
