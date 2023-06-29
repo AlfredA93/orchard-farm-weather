@@ -134,6 +134,10 @@ def send_new_row(new_row):
     worksheet_to_change.append_row(new_row)
     print("Successfully sent.")
     
+def thank_you():
+    print("Thank you for collecting data with Orchard Farm Weather Data Collection.")
+    print("This will help with all future crop plans alongwith the understanding of climate change in our area.")
+    
 def main():
     """
     Runs all program functions in correct order
@@ -146,7 +150,8 @@ def main():
     check_inputs(new_row)
     #send_new_row(new_row)
     duplicate_find()
-    print
+    thank_you()
+    
 print("\n")    
 print("Welcome to Orchard Farm Weather Data Collection.")
 duplicate_find()
