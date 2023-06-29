@@ -98,6 +98,7 @@ def duplicate_find():
     It then retrieves whole row data for the matching cells.
     It then prints out the weather data to the user.
     """
+    print("Loading... (may take upto 30 seconds..)\n")
     day_of_year = datetime.now().strftime('%j') 
     duplicates = SHEET.worksheet('data').findall(f"{day_of_year}")
     row_summary = []
@@ -110,7 +111,7 @@ def duplicate_find():
         row_num = string_row_2[0]
         all_row_values = SHEET.worksheet('data').row_values(row_num)
         row_summary.append(all_row_values)
-    print(row_summary)
+    #print(row_summary)
     # historical_data = {}
     # keys_list = []
     # values_list = []
@@ -122,8 +123,10 @@ def duplicate_find():
     #     values_list.append(values)
     # print(keys_list)
     # print(values_list)
+    print("Table of Weather Data since 1993:")
     for data in range(len(row_summary)):
         print(f"Year: {row_summary[data][0]}. Rainfall: {row_summary[data][2]}mm Min Temp: {row_summary[data][3]}°C Max Temp: {row_summary[data][4]}°C")
+        print("\n")
 
 def send_new_row(new_row):
     """
@@ -132,7 +135,7 @@ def send_new_row(new_row):
     print("Sending data to spreadsheet...")
     worksheet_to_change = SHEET.worksheet("data")
     worksheet_to_change.append_row(new_row)
-    print("Successfully sent.")
+    print("Successfully sent.\n")
     
 def thank_you():
     print("Thank you for collecting data with Orchard Farm Weather Data Collection.")
