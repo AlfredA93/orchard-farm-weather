@@ -152,9 +152,7 @@ def main():
     duplicate_find()
     thank_you()
     
-print("\n")    
 print("Welcome to Orchard Farm Weather Data Collection.")
-duplicate_find()
 main()
     
     
