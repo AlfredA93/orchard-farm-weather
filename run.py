@@ -17,10 +17,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('orchard_farm_weather_data')
 
-weather_data = SHEET.worksheet('data')
-
-all_data = weather_data.get_all_values()
-
 def new_date(new_row):
     """
     User input today's date function.
@@ -46,13 +42,16 @@ def new_weather(new_row, temp, range1, range2, record_num):
     - Lowest temperature today
     - Highest temperature today
     """
+    print("")
     while True:
         print(f"{temp} today.")
         print("Please enter a whole number. Example: 12")
         try:
             user_data = int(input(f"Enter the {temp} here:\n"))
         except ValueError:
-            print("That wasn't a whole number. Please enter a whole number")        # If user doesn't enter a number, throws error.
+            print("That wasn't a whole number. Please enter a whole number")
+            user_data = int(input(f"Enter the {temp} here:\n"))
+            # If user doesn't enter a number, throws error.
             continue
         else:
             while user_data not in range(range1, range2):               # Checks for excessive input value beyond expected amount.
