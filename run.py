@@ -92,22 +92,18 @@ def check_inputs(new_row):
         check_inputs(new_row)
 
 def duplicate_find():
-    duplicates = SHEET.worksheet('data').findall("179")
-    string = str(duplicates[0])
-    print(duplicates)
-    print(string)
-    string_parts = string.split(" ")
-    print(string_parts)
-    string_row = string_parts[1]
-    print(string_row)
-    string_row_num = string_row[1:]
-    print(string_row_num)
-    string_row_2 = string_row_num.split("C")
-    print(string_row_2)
-    row = string_row_2[0]
-    print(row)
-    all_row_values = SHEET.worksheet('data').row_values(row)
-    print(all_row_values)
+    day_of_year = datetime.now().strftime('%j') 
+    duplicates = SHEET.worksheet('data').findall(f"{day_of_year}")
+    row_summary = []
+    for row in duplicates:
+        string = str(duplicates[0])
+        string_parts = string.split(" ")
+        string_row = string_parts[1]
+        string_row_num = string_row[1:]
+        string_row_2 = string_row_num.split("C")
+        row_num = string_row_2[0]
+        all_row_values = SHEET.worksheet('data').row_values(row_num)
+        row_summary.append(all_row_values)
 
 def send_new_row(new_row):
     """
