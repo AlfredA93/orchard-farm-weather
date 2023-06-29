@@ -134,7 +134,7 @@ def send_new_row(new_row):
     worksheet_to_change.append_row(new_row)
     print("Successfully sent.")
     
-#def main():
+def main():
     """
     Runs all program functions in correct order
     """
@@ -145,11 +145,12 @@ def send_new_row(new_row):
     new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
     check_inputs(new_row)
     #send_new_row(new_row)
+    duplicate_find()
     print
 print("\n")    
 print("Welcome to Orchard Farm Weather Data Collection.")
 duplicate_find()
-#main()
+main()
     
     
     
