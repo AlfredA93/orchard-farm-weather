@@ -112,6 +112,10 @@ def duplicate_find():
         row_num = string_row_2[0]
         all_row_values = SHEET.worksheet('data').row_values(row_num)
         row_summary.append(all_row_values)
+        
+      #  Try using batch_get()
+        
+        
     #print(row_summary)
     # historical_data = {}
     # keys_list = []
