@@ -5,6 +5,8 @@ import plotext
 from datetime import datetime
 import pandas as pd
 
+DF = pd.read_csv('orchard_farm_weather_data.csv')
+
 def new_date(new_row):
     """
     User input today's date function.
@@ -148,7 +150,7 @@ def main():
     thank_you()
     
 print("Welcome to Orchard Farm Weather Data Collection.")
-main()
+#main()
     
     
     
