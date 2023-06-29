@@ -82,6 +82,14 @@ def check_inputs(new_row):
         print("Error... input wasn't 'yes' or 'no'. Try again.")
         check_inputs(new_row)
 
+
+def find_rows():
+    day_of_year = int(datetime.now().strftime('%j')) 
+    all_rows = DF.loc[DF['DOY'] == day_of_year]    
+    
+    print(all_rows)
+
+
 def duplicate_find():
     """
     Function to get all weather data for the same day of year. This brings back a list of cell and row numbers.
@@ -151,6 +159,7 @@ def main():
     
 print("Welcome to Orchard Farm Weather Data Collection.")
 #main()
+find_rows()
     
     
     
