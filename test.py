@@ -4,6 +4,7 @@
 import plotext
 from datetime import datetime
 import pandas as pd
+import csv
 
 DF = pd.read_csv('orchard_farm_data.csv')
 
@@ -86,6 +87,10 @@ def send_new_row(new_row):
     """
     print("Sending data to spreadsheet...")
     
+    file = open('orchard_farm_data.csv', 'a', newline = '')
+    writer = csv.writer(file)
+    writer.writerow(new_row)
+    
     print("Successfully sent.\n")
     
 def find_rows():
@@ -113,7 +118,7 @@ def main():
     new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
     new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
     check_inputs(new_row)
-    find_rows()
+    #find_rows()
     thank_you()
     
 print("Welcome to Orchard Farm Weather Data Collection.")
