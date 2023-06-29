@@ -92,6 +92,12 @@ def check_inputs(new_row):
         check_inputs(new_row)
 
 def duplicate_find():
+    """
+    Function to get all weather data for the same day of year. This brings back a list of cell and row numbers.
+    The function then converts to string. Strips it back into the row number.
+    It then retrieves whole row data for the matching cells.
+    It then prints out the weather data to the user.
+    """
     day_of_year = datetime.now().strftime('%j') 
     duplicates = SHEET.worksheet('data').findall(f"{day_of_year}")
     row_summary = []
@@ -105,18 +111,17 @@ def duplicate_find():
         all_row_values = SHEET.worksheet('data').row_values(row_num)
         row_summary.append(all_row_values)
     print(row_summary)
-    historical_data = {}
-    keys_list = []
-    values_list = []
-    for data in range(len(row_summary)):
-        first_row = row_summary[data]
-        keys = first_row[0]
-        keys_list.append(keys)
-        values = first_row[2:5]
-        values_list.append(values)
-    print(keys_list)
-    print(values_list)
-    
+    # historical_data = {}
+    # keys_list = []
+    # values_list = []
+    # for data in range(len(row_summary)):
+    #     first_row = row_summary[data]
+    #     keys = first_row[0]
+    #     keys_list.append(keys)
+    #     values = first_row[2:5]
+    #     values_list.append(values)
+    # print(keys_list)
+    # print(values_list)
     for data in range(len(row_summary)):
         print(f"Year: {row_summary[data][0]}. Rainfall: {row_summary[data][2]}mm Min Temp: {row_summary[data][3]}°C Max Temp: {row_summary[data][4]}°C")
 
