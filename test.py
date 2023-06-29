@@ -90,6 +90,9 @@ def find_rows():
     rainfall = all_rows["RAINFALL"].tolist()
     print(years)
     print(rainfall)
+    plotext.scatter(years, rainfall, marker = "braille")
+    plotext.title("Scatter Plot of")
+    plotext.show()
     
 
 
