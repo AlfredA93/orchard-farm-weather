@@ -116,6 +116,9 @@ def duplicate_find():
         values_list.append(values)
     print(keys_list)
     print(values_list)
+    
+    for data in range(len(row_summary)):
+        print(f"Year: {row_summary[data][0]}. Rainfall: {row_summary[data][2]}mm Min Temp: {row_summary[data][3]}°C Max Temp: {row_summary[data][4]}°C")
 
 def send_new_row(new_row):
     """
