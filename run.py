@@ -95,8 +95,8 @@ def duplicate_find():
     day_of_year = datetime.now().strftime('%j') 
     duplicates = SHEET.worksheet('data').findall(f"{day_of_year}")
     row_summary = []
-    for row in duplicates:
-        string = str(duplicates[0])
+    for row in range(len(duplicates)):
+        string = str(duplicates[row])
         string_parts = string.split(" ")
         string_row = string_parts[1]
         string_row_num = string_row[1:]
@@ -104,6 +104,7 @@ def duplicate_find():
         row_num = string_row_2[0]
         all_row_values = SHEET.worksheet('data').row_values(row_num)
         row_summary.append(all_row_values)
+    print(row_summary)
 
 def send_new_row(new_row):
     """
