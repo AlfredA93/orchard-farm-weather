@@ -105,6 +105,17 @@ def duplicate_find():
         all_row_values = SHEET.worksheet('data').row_values(row_num)
         row_summary.append(all_row_values)
     print(row_summary)
+    historical_data = {}
+    keys_list = []
+    values_list = []
+    for data in range(len(row_summary)):
+        first_row = row_summary[data]
+        keys = first_row[0]
+        keys_list.append(keys)
+        values = first_row[2:5]
+        values_list.append(values)
+    print(keys_list)
+    print(values_list)
 
 def send_new_row(new_row):
     """
