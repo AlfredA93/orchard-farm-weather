@@ -105,7 +105,7 @@ def send_new_row(new_row):
 def chart_question(weather_type):
     print(f"Would you like to see chart for {weather_type} on this day since 1993?\n")
     chart_answer = input("Please type 'yes' to see chart and 'no' continue.\n")
-    while chart_answer.lower() != "yes" or "no":
+    while chart_answer.lower() not in ("yes", "no"):
         chart_answer = input("Error... input wasn't 'yes' or 'no'. Try again.")
     if chart_answer.lower() == "yes":
         find_rows(weather_type)
@@ -123,7 +123,7 @@ def find_rows(weather_type):
         col_name = "TEMP_MAX"
     
     years = all_rows["YEAR"].tolist() # Convert dataframe values to list
-    rainfall = all_rows[{col_name}].tolist() 
+    rainfall = all_rows[f"{col_name}"].tolist() 
     print(years)
     print(rainfall)
     plotext.bar(years, rainfall, marker = "sd")
