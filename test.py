@@ -20,6 +20,7 @@ SHEET = GSPREAD_CLIENT.open('orchard_farm_weather_data')
 
 DF = pd.DataFrame(SHEET.worksheet('data').get_all_records())
 
+
 def new_date(new_row):
     """
     User input today's date function.
@@ -37,7 +38,8 @@ def new_date(new_row):
         new_row.append(year_num)                                        # Add year number to new row data list
         new_row.append(day_num_of_year)                                 # Add day of year to new row data list
         return new_row
-    
+
+
 def new_weather(new_row, temp, range1, range2, record_num):
     """
     Master function for 3 user inputs
@@ -52,8 +54,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
         try:
             user_data = int(input(f"Enter the {temp} here:\n"))
         except ValueError:
-            print("That wasn't a whole number. Please enter a whole number")
-            #user_data = int(input(f"Enter the {temp} here:\n"))         # If user doesn't enter a number, throws error.
+            print("That wasn't a whole number. Please enter a whole number") # If user doesn't enter a number, throws error.
             continue
         else:
             while user_data not in range(range1, range2):               # Checks for excessive input value beyond expected amount.
@@ -63,7 +64,6 @@ def new_weather(new_row, temp, range1, range2, record_num):
                     user_data = int(input(f"Enter the {temp} here:\n"))
                 except ValueError:
                     print("That wasn't a whole number. Please enter a whole number") 
-                    #user_data = int(input(f"Enter the {temp} here:\n"))
             new_row.append(user_data)                                   # Add new data to new row data list               
             break
     return new_row
