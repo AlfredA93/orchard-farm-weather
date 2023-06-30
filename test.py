@@ -102,8 +102,11 @@ def find_rows():
     rainfall = all_rows["RAINFALL"].tolist()
     print(years)
     print(rainfall)
-    plotext.scatter(years, rainfall, marker = "braille")
-    plotext.title("Scatter Plot of")
+    plotext.bar(years, rainfall, marker = "sd")
+    plotext.title("Scatter Plot of Rainfall since 1993")
+    plotext.xlabel("Year\n")
+    plotext.ylabel("Rainfall in mm")
+    plotext.plotsize(100,30)
     plotext.show()
     
 def thank_you():
@@ -120,7 +123,7 @@ def main():
     new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
     new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
     check_inputs(new_row)
-    #find_rows()
+    find_rows()
     thank_you()
     
 print("Welcome to Orchard Farm Weather Data Collection.")
