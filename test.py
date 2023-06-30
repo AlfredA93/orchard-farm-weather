@@ -44,6 +44,21 @@ def check_date():
     day_of_year = int(datetime.now().strftime('%j')) 
     year = int(datetime.now().strftime('%Y')) 
     todays_entries = DF.loc[(DF['DOY'] == day_of_year) & (DF['YEAR'] == year)]
+    if todays_entries.empty:
+        pass
+    else:
+        print("It seems as if there is an entry for today already in the spreadsheet")
+        print(todays_entries)
+        delete_row = input("Would you like to delete the entry above?\n")
+        if delete_row.lower() == "yes":
+            DF.drop(DF.index[-1], inplace=True) # Credit 1 - See README.md
+        elif delete_row.lower() == 'no':
+            thank_you()
+        else:
+            print("Error... input wasn't 'yes' or 'no'. Try again.")
+    print(DF.tail())
+    
+    
 def new_weather(new_row, temp, range1, range2, record_num):
     """
     Master function for 3 user inputs
