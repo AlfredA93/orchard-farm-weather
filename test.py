@@ -102,6 +102,14 @@ def send_new_row(new_row):
     SHEET.worksheet('data').update([DF.columns.values.tolist()] + DF.values.tolist()) # Credit:Code from gspread with pandas documentation. URL in README.md
     print("Data successfully added to spreadsheet.")
     
+def chart_question(weather_type):
+    print(f"Would you like to see chart for {weather_type} on this day since 1993?\n")
+    chart_answer = input("Please type 'yes' to see chart and 'no' continue.\n")
+    while chart_answer.lower() != "yes" or "no":
+        chart_answer = input("Error... input wasn't 'yes' or 'no'. Try again.")
+    if chart_answer.lower() == "yes":
+        find_rows(weather_type)
+    
     
 def find_rows():
     day_of_year = int(datetime.now().strftime('%j')) 
@@ -131,6 +139,9 @@ def main():
     new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
     new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
     check_inputs(new_row)
+    chart_question("rainfall")
+    chart_question("minimum temperature")
+    chart_question("maximum temperature")
     find_rows()
     thank_you()
     
