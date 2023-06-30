@@ -111,19 +111,28 @@ def chart_question(weather_type):
         find_rows(weather_type)
     
     
-def find_rows():
+def find_rows(weather_type):
     day_of_year = int(datetime.now().strftime('%j')) 
-    all_rows = DF.loc[DF['DOY'] == day_of_year]
-    years = all_rows["YEAR"].tolist()
-    rainfall = all_rows["RAINFALL"].tolist()
+    all_rows = DF.loc[DF['DOY'] == day_of_year] # Get all rows from column DOY (Day Of Year)
+    
+    if weather_type == "rainfall":
+        col_name = "RAINFALL"
+    elif weather_type == "minimum temperature":
+        col_name = "TEMP_MIN"
+    elif weather_type == "maximum temperature":
+        col_name = "TEMP_MAX"
+    
+    years = all_rows["YEAR"].tolist() # Convert dataframe values to list
+    rainfall = all_rows[{col_name}].tolist() 
     print(years)
     print(rainfall)
     plotext.bar(years, rainfall, marker = "sd")
-    plotext.title("Scatter Plot of Rainfall since 1993")
+    plotext.title(f"Bar Chart of {weather_type} of since 1993")
     plotext.xlabel("Year\n")
-    plotext.ylabel("Rainfall in mm")
+    plotext.ylabel(f"{weather_type} in mm")
     plotext.plotsize(100,30)
     plotext.show()
+    
     
 def thank_you():
     print("Thank you for collecting data with Orchard Farm Weather Data Collection.")
@@ -142,7 +151,6 @@ def main():
     chart_question("rainfall")
     chart_question("minimum temperature")
     chart_question("maximum temperature")
-    find_rows()
     thank_you()
     
 print("Welcome to Orchard Farm Weather Data Collection.")
