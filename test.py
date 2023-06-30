@@ -40,6 +40,10 @@ def new_date(new_row):
         return new_row
 
 
+def check_date():
+    day_of_year = int(datetime.now().strftime('%j')) 
+    year = int(datetime.now().strftime('%Y')) 
+    todays_entries = DF.loc[(DF['DOY'] == day_of_year) & (DF['YEAR'] == year)]
 def new_weather(new_row, temp, range1, range2, record_num):
     """
     Master function for 3 user inputs
@@ -145,6 +149,7 @@ def main():
     """
     new_row = []                                                          # List for new row
     new_date(new_row)                                                     # Today's date input
+    check_date()
     new_weather(new_row, "Rainfall in millimeters", 0, 450, "341.4mm")    # Rainfall input
     new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
     new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
