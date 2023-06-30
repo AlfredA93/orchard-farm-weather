@@ -97,15 +97,11 @@ def send_new_row(new_row):
     """
     Send list of user input data to spreadsheet   
     """
+    DF.loc[len(DF)] = new_row # Credit: Code from sparkbyexmaples.com pandas article. URL in README.md
     print("Sending data to spreadsheet.")
+    SHEET.worksheet('data').update([DF.columns.values.tolist()] + DF.values.tolist()) # Credit:Code from gspread with pandas documentation. URL in README.md
+    print("Data successfully added to spreadsheet.")
     
-    # file = open("orchard_farm_data.csv", "a", newline = "")
-    # print("File opened...")
-    # writer = csv.writer(file)
-    # writer.writerow(new_row)
-    # print("...new data successfully written...")
-    # file.close()
-    # print("... file closed.\n")
     
 def find_rows():
     day_of_year = int(datetime.now().strftime('%j')) 
