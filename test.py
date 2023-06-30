@@ -4,9 +4,21 @@
 import plotext
 from datetime import datetime
 import pandas as pd
-import csv
+import gspread
+from google.oauth2.service_account import Credentials
 
-DF = pd.read_csv('orchard_farm_data.csv')
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('orchard_farm_weather_data')
+
+DF = pd.DataFrame(SHEET.worksheet('data').get_all_records())
 
 def new_date(new_row):
     """
@@ -87,13 +99,13 @@ def send_new_row(new_row):
     """
     print("Sending data to spreadsheet.")
     
-    file = open("orchard_farm_data.csv", "a", newline = "")
-    print("File opened...")
-    writer = csv.writer(file)
-    writer.writerow(new_row)
-    print("...new data successfully written...")
-    file.close()
-    print("... file closed.\n")
+    # file = open("orchard_farm_data.csv", "a", newline = "")
+    # print("File opened...")
+    # writer = csv.writer(file)
+    # writer.writerow(new_row)
+    # print("...new data successfully written...")
+    # file.close()
+    # print("... file closed.\n")
     
 def find_rows():
     day_of_year = int(datetime.now().strftime('%j')) 
@@ -131,6 +143,7 @@ main()
 
 
 # Still to implement
+#
 # - if column YEAR == %Y and column DOY == %j :
 # 	print(”There is an entry for today already in our database”)
 # 	input(“Do you want to overwrite the data for today?”)
