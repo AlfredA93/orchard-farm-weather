@@ -128,3 +128,24 @@ def main():
     
 print("Welcome to Orchard Farm Weather Data Collection.")
 main()
+
+
+# Still to implement
+# - if column YEAR == %Y and column DOY == %j :
+# 	print(”There is an entry for today already in our database”)
+# 	input(“Do you want to overwrite the data for today?”)
+# 		if user_input == “yes”:
+# 		#drop method
+# 			data = pd.read_csv("my file")
+# 			data = data.drop(data.index[-1])
+# 			print(data.tail())
+# 		else if user_input == “no”:
+# 			thank_you()
+
+# -float(round(input),0.1) on user inputs? Check with range, add range step of 0.1? 
+# Putting round function to 0.1 and adding 0.1 step to range may allow it to work together. 
+
+
+# - Add function to ask whether they want to see rainfall chart
+# - Add function to ask whether they want to see min temp chart
+# - Add function to ask whether they want to see max temp chart
