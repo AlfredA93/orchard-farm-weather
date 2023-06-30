@@ -124,14 +124,15 @@ def find_rows(weather_type):
     
     years = all_rows["YEAR"].tolist() # Convert dataframe values to list
     rainfall = all_rows[f"{col_name}"].tolist() 
-    print(years)
-    print(rainfall)
+    
+
     plotext.bar(years, rainfall, marker = "sd")
     plotext.title(f"Bar Chart of {weather_type} of since 1993")
     plotext.xlabel("Year\n")
     plotext.ylabel(f"{weather_type} in mm")
     plotext.plotsize(100,30)
     plotext.show()
+    plotext.clear_data()
     
     
 def thank_you():
