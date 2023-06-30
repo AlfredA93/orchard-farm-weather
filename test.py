@@ -53,7 +53,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
             user_data = int(input(f"Enter the {temp} here:\n"))
         except ValueError:
             print("That wasn't a whole number. Please enter a whole number")
-            user_data = int(input(f"Enter the {temp} here:\n"))         # If user doesn't enter a number, throws error.
+            #user_data = int(input(f"Enter the {temp} here:\n"))         # If user doesn't enter a number, throws error.
             continue
         else:
             while user_data not in range(range1, range2):               # Checks for excessive input value beyond expected amount.
@@ -63,7 +63,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
                     user_data = int(input(f"Enter the {temp} here:\n"))
                 except ValueError:
                     print("That wasn't a whole number. Please enter a whole number") 
-                    user_data = int(input(f"Enter the {temp} here:\n"))
+                    #user_data = int(input(f"Enter the {temp} here:\n"))
             new_row.append(user_data)                                   # Add new data to new row data list               
             break
     return new_row
