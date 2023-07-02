@@ -52,7 +52,8 @@ def check_date(choice):
     else:
         print("It seems as if there is an entry for today already in the spreadsheet")
         print(todays_entries)
-        delete_row = input("Would you like to delete the entry above?\n")
+        print("Would you like to delete the entry above?")
+        delete_row = input("Type 'yes' or 'no'.\n")
         if delete_row.lower() == "yes":
             DF.drop(DF.index[-1], inplace=True) # Credit 1 - See README.md
         elif delete_row.lower() == 'no':
@@ -62,7 +63,6 @@ def check_date(choice):
         else:
             print("Error... input wasn't 'yes' or 'no'. Try again.")
             check_date(choice)
-    print(DF.tail())
     
     
 def new_weather(new_row, temp, range1, range2, record_num):
@@ -112,6 +112,7 @@ def check_inputs(new_row):
     print("Would you like the following values to be added to the spreadsheet?\n")
     for keys, values in user_input_checks.items():
         print(keys,':', values)
+        print("")
     send_inputs = input("Please type 'yes' to send and 'no' to restart programme\n")
     if send_inputs.lower() == "yes":
         send_new_row(new_row)
@@ -132,7 +133,8 @@ def send_new_row(new_row):
     print("Data successfully added to spreadsheet.")
     
 def chart_question(weather_type):
-    print(f"Would you like to see chart for {weather_type} on this day since 1993?\n")
+    print("")
+    print(f"Would you like to see a chart for {weather_type} on this day since 1993?\n")
     chart_answer = input("Please type 'yes' to see chart and 'no' continue.\n")
     while chart_answer.lower() not in ("yes", "no"):
         chart_answer = input("Error... input wasn't 'yes' or 'no'. Try again.")
@@ -168,7 +170,6 @@ def find_rows(weather_type):
     
     
 def thank_you():
-    print(term.clear)
     print("Thank you for collecting data with Orchard Farm Weather Data Collection.")
     print("This will help with all future crop plans alongwith the understanding of climate change in our area.\n")
     
