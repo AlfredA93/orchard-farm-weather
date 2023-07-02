@@ -29,6 +29,7 @@ def new_date(new_row):
     User input today's date function.
     """
     while True:
+        print(term.clear)
         print("Please enter the date today")
         print("Format: YYYY-MM-DD")
         date_str = input("Enter the date here:\n")
@@ -51,8 +52,11 @@ def check_date(choice):
         pass
     else:
         print("It seems as if there is an entry for today already in the spreadsheet")
+        print("")
         print(todays_entries)
-        print("Would you like to delete the entry above?")
+        print("")
+        print("We only keep one line of data per day in our records.")
+        print("Would you like to delete the entry above and start a new data record?")
         delete_row = input("Type 'yes' or 'no'.\n")
         if delete_row.lower() == "yes":
             DF.drop(DF.index[-1], inplace=True) # Credit 1 - See README.md
@@ -112,8 +116,8 @@ def check_inputs(new_row):
     print("Would you like the following values to be added to the spreadsheet?\n")
     for keys, values in user_input_checks.items():
         print(keys,':', values)
-        print("")
-    send_inputs = input("Please type 'yes' to send and 'no' to restart programme\n")
+    print("")
+    send_inputs = input("Please type 'yes' to send and 'no' to restart programme.\n")
     if send_inputs.lower() == "yes":
         send_new_row(new_row)
     elif send_inputs.lower() == 'no':
