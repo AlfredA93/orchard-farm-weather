@@ -28,8 +28,10 @@ def new_date(new_row):
     """
     User input today's date function.
     """
+    print(term.clear)
+    print("Welcome to Orchard Farm Weather Data Collection.")
+    print("")
     while True:
-        print(term.clear)
         print("Please enter the date today")
         print("Format: YYYY-MM-DD")
         date_str = input("Enter the date here:\n")
@@ -99,7 +101,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
             break
     return new_row
 
-def check_inputs(new_row):
+def check_inputs(new_row, dont_send):
     """
     Check with user that they want to send inputs to spreadsheet
     """
@@ -117,12 +119,12 @@ def check_inputs(new_row):
     for keys, values in user_input_checks.items():
         print(keys,':', values)
     print("")
-    send_inputs = input("Please type 'yes' to send and 'no' to restart programme.\n")
+    send_inputs = input("Please type 'yes' to send and 'no' to finish.\n")
     if send_inputs.lower() == "yes":
         send_new_row(new_row)
     elif send_inputs.lower() == 'no':
-        print("Restarting...")
-        main()
+        dont_send = "no"
+        return dont_send
     else:
         print("Error... input wasn't 'yes' or 'no'. Try again.")
         check_inputs(new_row)
@@ -183,6 +185,7 @@ def main():
     """
     new_row = []  # List for new row
     choice = "" 
+    dont_send = ""
     new_date(new_row)                                                     # Today's date input
     #check_date(choice)
     if check_date(choice) == "no":
@@ -191,14 +194,14 @@ def main():
         new_weather(new_row, "Rainfall in millimeters", 0, 450, "341.4mm")    # Rainfall input
         new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
         new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
-        check_inputs(new_row)
+        check_inputs(new_row, dont_send)
+        if check_inputs(dont_send) == "no":
+            thank_you()
+            pass
         chart_question("rainfall")
         chart_question("minimum temperature")
         chart_question("maximum temperature")
         thank_you()
-    
-print("Welcome to Orchard Farm Weather Data Collection.")
-print("")
 main()
 
 
