@@ -58,6 +58,7 @@ def check_date(choice):
             return choice
         else:
             print("Error... input wasn't 'yes' or 'no'. Try again.")
+            check_date(choice)
     print(DF.tail())
     
     
