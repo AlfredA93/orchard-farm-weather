@@ -194,14 +194,15 @@ def main():
         new_weather(new_row, "Rainfall in millimeters", 0, 450, "341.4mm")    # Rainfall input
         new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
         new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
-        check_inputs(new_row, dont_send)
-        if check_inputs(dont_send) == "no":
+        #check_inputs(new_row, dont_send)
+        if check_inputs(new_row, dont_send) == "no":
             thank_you()
             pass
-        chart_question("rainfall")
-        chart_question("minimum temperature")
-        chart_question("maximum temperature")
-        thank_you()
+        else: 
+            chart_question("rainfall")
+            chart_question("minimum temperature")
+            chart_question("maximum temperature")
+            thank_you()
 main()
 
 
