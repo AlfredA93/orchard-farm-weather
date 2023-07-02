@@ -73,6 +73,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
     - Highest temperature today
     """
     print(term.clear)
+    print("Orchard Farm Weather Data Collection.")
     print("")
     while True:
         print(f"{temp} today.")
@@ -99,14 +100,15 @@ def check_inputs(new_row):
     Check with user that they want to send inputs to spreadsheet
     """
     print(term.clear)
+    print("Orchard Farm Weather Data Collection.")
+    print("")
     user_input_checks = {
         "Date" : datetime.today().date().strftime('%Y-%m-%d'),
         "Rainfall (mm)" : new_row[2],
         "Lowest Temperature (°C)" : new_row[3],
         "Highest Temperature (°C)" : new_row[4]
     }
-        
-    print("\n")
+    
     print("Would you like the following values to be added to the spreadsheet?\n")
     for keys, values in user_input_checks.items():
         print(keys,':', values)
@@ -130,7 +132,6 @@ def send_new_row(new_row):
     print("Data successfully added to spreadsheet.")
     
 def chart_question(weather_type):
-    print(term.clear)
     print(f"Would you like to see chart for {weather_type} on this day since 1993?\n")
     chart_answer = input("Please type 'yes' to see chart and 'no' continue.\n")
     while chart_answer.lower() not in ("yes", "no"):
@@ -141,6 +142,8 @@ def chart_question(weather_type):
     
 def find_rows(weather_type):
     print(term.clear)
+    print("Orchard Farm Weather Data Collection.")
+    print("")
     day_of_year = int(datetime.now().strftime('%j')) 
     all_rows = DF.loc[DF['DOY'] == day_of_year] # Get all rows from column DOY (Day Of Year)
     
@@ -190,6 +193,7 @@ def main():
         thank_you()
     
 print("Welcome to Orchard Farm Weather Data Collection.")
+print("")
 main()
 
 
