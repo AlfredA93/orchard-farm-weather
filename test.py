@@ -40,7 +40,7 @@ def new_date(new_row):
         return new_row
 
 
-def check_date():
+def check_date(choice):
     day_of_year = int(datetime.now().strftime('%j')) 
     year = int(datetime.now().strftime('%Y')) 
     todays_entries = DF.loc[(DF['DOY'] == day_of_year) & (DF['YEAR'] == year)]
@@ -54,6 +54,8 @@ def check_date():
             DF.drop(DF.index[-1], inplace=True) # Credit 1 - See README.md
         elif delete_row.lower() == 'no':
             thank_you()
+            choice ="no"
+            return choice
         else:
             print("Error... input wasn't 'yes' or 'no'. Try again.")
     print(DF.tail())
@@ -162,17 +164,21 @@ def main():
     """
     Runs all program functions in correct order
     """
-    new_row = []                                                          # List for new row
+    new_row = []  # List for new row
+    choice = "" 
     new_date(new_row)                                                     # Today's date input
-    check_date()
-    new_weather(new_row, "Rainfall in millimeters", 0, 450, "341.4mm")    # Rainfall input
-    new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
-    new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
-    check_inputs(new_row)
-    chart_question("rainfall")
-    chart_question("minimum temperature")
-    chart_question("maximum temperature")
-    thank_you()
+    #check_date(choice)
+    if check_date(choice) == "no":
+        pass
+    else:    
+        new_weather(new_row, "Rainfall in millimeters", 0, 450, "341.4mm")    # Rainfall input
+        new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
+        new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
+        check_inputs(new_row)
+        chart_question("rainfall")
+        chart_question("minimum temperature")
+        chart_question("maximum temperature")
+        thank_you()
     
 print("Welcome to Orchard Farm Weather Data Collection.")
 main()
