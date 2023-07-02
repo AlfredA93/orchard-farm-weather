@@ -6,6 +6,7 @@ from datetime import datetime
 import pandas as pd
 import gspread
 from google.oauth2.service_account import Credentials
+import blessed
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -19,6 +20,8 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('orchard_farm_weather_data')
 
 DF = pd.DataFrame(SHEET.worksheet('data').get_all_records())
+
+term = blessed.Terminal()
 
 
 def new_date(new_row):
@@ -69,6 +72,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
     - Lowest temperature today
     - Highest temperature today
     """
+    print(term.clear)
     print("")
     while True:
         print(f"{temp} today.")
@@ -94,6 +98,7 @@ def check_inputs(new_row):
     """
     Check with user that they want to send inputs to spreadsheet
     """
+    print(term.clear)
     user_input_checks = {
         "Date" : datetime.today().date().strftime('%Y-%m-%d'),
         "Rainfall (mm)" : new_row[2],
@@ -125,6 +130,7 @@ def send_new_row(new_row):
     print("Data successfully added to spreadsheet.")
     
 def chart_question(weather_type):
+    print(term.clear)
     print(f"Would you like to see chart for {weather_type} on this day since 1993?\n")
     chart_answer = input("Please type 'yes' to see chart and 'no' continue.\n")
     while chart_answer.lower() not in ("yes", "no"):
@@ -134,6 +140,7 @@ def chart_question(weather_type):
     
     
 def find_rows(weather_type):
+    print(term.clear)
     day_of_year = int(datetime.now().strftime('%j')) 
     all_rows = DF.loc[DF['DOY'] == day_of_year] # Get all rows from column DOY (Day Of Year)
     
@@ -158,6 +165,7 @@ def find_rows(weather_type):
     
     
 def thank_you():
+    print(term.clear)
     print("Thank you for collecting data with Orchard Farm Weather Data Collection.")
     print("This will help with all future crop plans alongwith the understanding of climate change in our area.\n")
     
