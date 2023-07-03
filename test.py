@@ -42,7 +42,7 @@ def new_date(new_row):
             print("...")
             time.sleep(1)
             print("...")
-            time.sleep(1)
+            time.sleep(0.5)
             new_date(new_row)                                           # Go back to beginning if date incorrect
             break
         year_num = int(datetime.today().date().strftime('%Y'))          # Create year number
@@ -144,6 +144,8 @@ def send_new_row(new_row):
     print("Sending data to spreadsheet.")
     SHEET.worksheet('data').update([DF.columns.values.tolist()] + DF.values.tolist()) # Credit:Code from gspread with pandas documentation. URL in README.md
     print("Data successfully added to spreadsheet.")
+    time.sleep(1.5)
+    print(TERM.clear)
     
 def chart_question(weather_type):
     print("")
@@ -207,8 +209,11 @@ def main():
             pass
         else: 
             chart_question("rainfall")
+            time.sleep(1.5)
             chart_question("minimum temperature")
+            time.sleep(1.5)
             chart_question("maximum temperature")
+            time.sleep(1.5)
             thank_you()
 main()
 
