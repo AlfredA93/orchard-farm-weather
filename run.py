@@ -31,7 +31,7 @@ def new_date(new_row):
     print("")
     while True:
         print("Please enter the date today")
-        print("Format: YYYY-MM-DD")
+        print("\x1B[3mFormat: YYYY-MM-DD\x1B[23m")  # Credit 2 in README.md
         date_str = input("Enter the date here:\n")
         if date_str != datetime.today().date().strftime('%Y-%m-%d'):
             print("Error - incorrect date entered. Restarting...")
@@ -56,9 +56,10 @@ def check_date(choice):
     if todays_entries.empty:
         pass
     else:
-        print("It seems as if there is alredy an entry for today")
+        print("It seems as if there is already an entry for today")
         print("")
         print(todays_entries)
+        print("\x1B[3mDOY: Day of Year\x1B[23m")
         print("")
         print("We only keep one line of data per day in our records.")
         print("Do you want to delete the existing entry and start a new one?")
@@ -85,7 +86,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
     print("")
     while True:
         print(f"{temp} today.")
-        print("Please enter a whole number. Example: 12")
+        print("Please enter a whole number. \x1B[3mExample: 12\x1B[23m")
         try:
             user_data = int(input(f"Enter the {temp} here:\n"))
         except ValueError:
@@ -105,7 +106,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
     return new_row
 
 
-def check_inputs(new_row, dont_send):
+def check_inputs(new_row):
     """
     Check with user that they want to send inputs to spreadsheet
     """
@@ -137,8 +138,7 @@ def check_inputs(new_row, dont_send):
     if send_inputs.lower() == "yes":
         send_new_row(new_row)
     elif send_inputs.lower() == 'no':
-        dont_send = "no"
-        return dont_send
+        pass
     else:
         print("Error... input wasn't 'yes' or 'no'. Try again.")
         check_inputs(new_row)
@@ -163,7 +163,7 @@ def chart_question(weather_type):
     print(f"Shall we see a chart for {weather_type} on this day since 1993?\n")
     chart_answer = input("Please type 'yes' to see chart and 'no' continue.\n")
     while chart_answer.lower() not in ("yes", "no"):
-        chart_answer = input("Error... input wasn't 'yes' or 'no'. Try again.")
+        chart_answer = input("Error... input wasn't 'yes' or 'no'. Try again.\n")
     if chart_answer.lower() == "yes":
         find_rows(weather_type)
 
@@ -218,6 +218,7 @@ def chart_path():
         time.sleep(2)
         thank_you()
 
+
 def main():
     """
     Runs all program functions in correct order
@@ -234,11 +235,8 @@ def main():
         new_weather(new_row, "Rainfall in millimeters", 0, 450, "341.4mm")
         new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")
         new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")
-        if check_inputs(new_row, dont_send) == "no":
-            chart_path()
-            pass
-        else:
-            chart_path()
+        check_inputs(new_row)
+        chart_path()
 
 
 main()
