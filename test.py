@@ -209,11 +209,11 @@ def main():
             pass
         else: 
             chart_question("rainfall")
-            time.sleep(1.5)
+            time.sleep(2)
             chart_question("minimum temperature")
-            time.sleep(1.5)
+            time.sleep(2)
             chart_question("maximum temperature")
-            time.sleep(1.5)
+            time.sleep(2)
             thank_you()
 main()
 
