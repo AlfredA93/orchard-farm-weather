@@ -236,9 +236,9 @@ def chart_path():
     The controls the pathway of the chart creation functions.
     """
     chart_question("rainfall")
-    time.sleep(2)
+    time.sleep(1)
     chart_question("contrasting temperatures")
-    time.sleep(2)
+    time.sleep(1)
     thank_you()
 
 
