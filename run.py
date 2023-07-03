@@ -120,7 +120,7 @@ def check_inputs(new_row):
     If low temp is more than the high temp it swaps the values.
     It displays the values that the user has inputted.
     It asks the user whether they want these data points to be stored.
-    It then triggers the next function to add values to the spreadsheet. 
+    It then triggers the next function to add values to the spreadsheet.
     Check with user that they want to send inputs to spreadsheet.
     """
     print(TERM.clear)
@@ -130,7 +130,7 @@ def check_inputs(new_row):
     low_temp = new_row[3]
     high_temp = new_row[4]
 
-    if low_temp > high_temp: # Is low temperature more than high temperature?
+    if low_temp > high_temp:  # Is low temperature more than high temperature?
         print("We've noticed that the low temp is bigger than the high temp.")
         print("So we've swapped these values for you!")
         new_row[3] = high_temp
@@ -144,7 +144,7 @@ def check_inputs(new_row):
     }
 
     print("Would you like these values to be added to the spreadsheet?\n")
-    for keys, values in user_input_checks.items(): # Display user inputs"
+    for keys, values in user_input_checks.items():  # Display user inputs"
         print(keys, ':', values)
     print("")
     send_inputs = input("Type 'yes' to send, 'no' to continue to charts.\n")
@@ -180,7 +180,7 @@ def chart_question(weather_type):
     print(f"Shall we see a chart for {weather_type} on this day since 1993?\n")
     chart_answer = input("Please type 'yes' to see chart and 'no' continue.\n")
     while chart_answer.lower() not in ("yes", "no"):
-        chart_answer = input("Error... input wasn't 'yes' or 'no'. Try again.\n")
+        chart_answer = input("Error. Input wasn't 'yes' or 'no'. Try again.\n")
     if chart_answer.lower() == "yes":
         find_rows(weather_type)
 
