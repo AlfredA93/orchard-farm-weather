@@ -115,6 +115,16 @@ def check_inputs(new_row, dont_send):
     print(TERM.clear)
     print("Orchard Farm Weather Data Collection.")
     print("")
+    
+    low_temp = new_row[3]
+    high_temp = new_row[4]
+    
+    if low_temp > high_temp:
+        print("We've noticed that your lowest temperature is more than your higher.")
+        print("So we've swapped these values for you!")
+        new_row[3] = high_temp
+        new_row[4] = low_temp 
+    
     user_input_checks = {
         "Date" : datetime.today().date().strftime('%Y-%m-%d'),
         "Rainfall (mm)" : new_row[2],
