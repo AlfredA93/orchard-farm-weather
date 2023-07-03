@@ -21,14 +21,14 @@ SHEET = GSPREAD_CLIENT.open('orchard_farm_weather_data')
 
 DF = pd.DataFrame(SHEET.worksheet('data').get_all_records())
 
-term = blessed.Terminal()
+TERM = blessed.Terminal()
 
 
 def new_date(new_row):
     """
     User input today's date function.
     """
-    print(term.clear)
+    print(TERM.clear)
     print("Welcome to Orchard Farm Weather Data Collection.")
     print("")
     while True:
@@ -78,7 +78,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
     - Lowest temperature today
     - Highest temperature today
     """
-    print(term.clear)
+    print(TERM.clear)
     print("Orchard Farm Weather Data Collection.")
     print("")
     while True:
@@ -105,7 +105,7 @@ def check_inputs(new_row, dont_send):
     """
     Check with user that they want to send inputs to spreadsheet
     """
-    print(term.clear)
+    print(TERM.clear)
     print("Orchard Farm Weather Data Collection.")
     print("")
     user_input_checks = {
@@ -149,7 +149,7 @@ def chart_question(weather_type):
     
     
 def find_rows(weather_type):
-    print(term.clear)
+    print(TERM.clear)
     print("Orchard Farm Weather Data Collection.")
     print("")
     day_of_year = int(datetime.now().strftime('%j')) 
