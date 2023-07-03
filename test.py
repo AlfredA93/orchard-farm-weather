@@ -108,6 +108,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
             break
     return new_row
 
+
 def check_inputs(new_row, dont_send):
     """
     Check with user that they want to send inputs to spreadsheet
@@ -146,6 +147,7 @@ def check_inputs(new_row, dont_send):
         print("Error... input wasn't 'yes' or 'no'. Try again.")
         check_inputs(new_row)
 
+
 def send_new_row(new_row):
     """
     Send list of user input data to spreadsheet   
@@ -156,7 +158,8 @@ def send_new_row(new_row):
     print("Data successfully added to spreadsheet.")
     time.sleep(1.5)
     print(TERM.clear)
-    
+
+
 def chart_question(weather_type):
     print("")
     print(f"Would you like to see a chart for {weather_type} on this day since 1993?\n")
@@ -205,7 +208,8 @@ def find_rows(weather_type):
 def thank_you():
     print("Thank you for collecting data with Orchard Farm Weather Data Collection.")
     print("This will help with all future crop plans alongwith the understanding of climate change in our area.\n")
-    
+
+
 def main():
     """
     Runs all program functions in correct order
@@ -231,26 +235,6 @@ def main():
             chart_question("contrasting temperatures")
             time.sleep(2)
             thank_you()
+
+
 main()
-
-
-# Still to implement
-#
-# - if column YEAR == %Y and column DOY == %j :
-# 	print(”There is an entry for today already in our database”)
-# 	input(“Do you want to overwrite the data for today?”)
-# 		if user_input == “yes”:
-# 		#drop method
-# 			data = pd.read_csv("my file")
-# 			data = data.drop(data.index[-1])
-# 			print(data.tail())
-# 		else if user_input == “no”:
-# 			thank_you()
-
-# -float(round(input),0.1) on user inputs? Check with range, add range step of 0.1? 
-# Putting round function to 0.1 and adding 0.1 step to range may allow it to work together. 
-
-
-# - Add function to ask whether they want to see rainfall chart
-# - Add function to ask whether they want to see min temp chart
-# - Add function to ask whether they want to see max temp chart
