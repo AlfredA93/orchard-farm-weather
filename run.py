@@ -25,6 +25,9 @@ TERM = blessed.Terminal()
 def new_date(new_row):
     """
     User input today's date function.
+    This function checks that the user input and current date are identical.
+    It then generates the first two data points for the new data row.
+    These are the Year Number and Day of Year.
     """
     print(TERM.clear)
     print("Welcome to Orchard Farm Weather Data Collection.")
@@ -50,6 +53,11 @@ def new_date(new_row):
 
 
 def check_date(choice):
+    """
+    This function checks with the spreadsheet.
+    It checks to see if there is an entry for today.
+    If so, it asks the user if they'd like to delete the row already there.
+    """
     day_of_year = int(datetime.now().strftime('%j'))
     year = int(datetime.now().strftime('%Y'))
     todays_entries = DF.loc[(DF['DOY'] == day_of_year) & (DF['YEAR'] == year)]
@@ -108,7 +116,12 @@ def new_weather(new_row, temp, range1, range2, record_num):
 
 def check_inputs(new_row):
     """
-    Check with user that they want to send inputs to spreadsheet
+    This function checks the user inputs for high or low temperatures.
+    If low temp is more than the high temp it swaps the values.
+    It displays the values that the user has inputted.
+    It asks the user whether they want these data points to be stored.
+    It then triggers the next function to add values to the spreadsheet. 
+    Check with user that they want to send inputs to spreadsheet.
     """
     print(TERM.clear)
     print("Orchard Farm Weather Data Collection.")
@@ -117,7 +130,7 @@ def check_inputs(new_row):
     low_temp = new_row[3]
     high_temp = new_row[4]
 
-    if low_temp > high_temp:
+    if low_temp > high_temp: # Is low temperature more than high temperature?
         print("We've noticed that the low temp is bigger than the high temp.")
         print("So we've swapped these values for you!")
         new_row[3] = high_temp
@@ -131,7 +144,7 @@ def check_inputs(new_row):
     }
 
     print("Would you like these values to be added to the spreadsheet?\n")
-    for keys, values in user_input_checks.items():
+    for keys, values in user_input_checks.items(): # Display user inputs"
         print(keys, ':', values)
     print("")
     send_inputs = input("Type 'yes' to send, 'no' to continue to charts.\n")
@@ -146,7 +159,7 @@ def check_inputs(new_row):
 
 def send_new_row(new_row):
     """
-    Send list of user input data to spreadsheet
+    This function updates the spreadsheet with a new row.
     """
     DF.loc[len(DF)] = new_row  # Credit: Code from sparkbyexmaples.com
     print("Sending data to spreadsheet.")
@@ -159,6 +172,10 @@ def send_new_row(new_row):
 
 
 def chart_question(weather_type):
+    """
+    This function asks the user whether they'd like to see a chart of the data.
+    It loops around the input until yes or no is chosen.
+    """
     print("")
     print(f"Shall we see a chart for {weather_type} on this day since 1993?\n")
     chart_answer = input("Please type 'yes' to see chart and 'no' continue.\n")
@@ -204,24 +221,31 @@ def find_rows(weather_type):
 
 def thank_you():
     """
-    Thank you section
+    Thank you section.
+    This is the final stage of the programme.
     """
+    print("")
     print("Thank you for using Orchard Farm Weather Data Collection.")
     print("This will help with all future crop plans.")
-    print("Alongwith understanding the effects of climate change in our area.")
+    print("Also helping to understand the effects of climate change.")
+    print("")
 
 
 def chart_path():
-        chart_question("rainfall")
-        time.sleep(2)
-        chart_question("contrasting temperatures")
-        time.sleep(2)
-        thank_you()
+    """
+    The controls the pathway of the chart creation functions.
+    """
+    chart_question("rainfall")
+    time.sleep(2)
+    chart_question("contrasting temperatures")
+    time.sleep(2)
+    thank_you()
 
 
 def main():
     """
-    Runs all program functions in correct order
+    This controls the running order of the functions.
+    It can change its pathway depending on the user choices through the app.
     """
     new_row = []  # List for new row
     choice = ""  # Variable for check_date
