@@ -158,9 +158,16 @@ def chart_question(weather_type):
     
     
 def find_rows(weather_type):
+    """
+    This function retrieves row information from the dataframe.
+    It splits it into the variables we'd like to show on the chart.
+    Rainfall, minimum and maximum temperatures.
+    It then shows a different chart depending on the weather_type entered.
+    """
     print(TERM.clear)
     print("Orchard Farm Weather Data Collection.")
     print("")
+    
     day_of_year = int(datetime.now().strftime('%j')) 
     all_rows = DF.loc[DF['DOY'] == day_of_year] # Get all rows from column DOY (Day Of Year)
     years = all_rows["YEAR"].tolist()
@@ -183,23 +190,6 @@ def find_rows(weather_type):
         
     plotext.show()
     plotext.clear_data()
-    
-    # years = all_rows["YEAR"].tolist() # Convert dataframe values to list
-    # rainfall = all_rows[f"{col_name}"].tolist()
-    # min_temp = all_rows[f"TEMP_MIN"].tolist()
-    # max_temp = all_rows[f"TEMP_MAX"].tolist()
-    
-
-    # plotext.bar(years, rainfall, marker = "sd")
-    # plotext.title(f"Bar Chart of {weather_type} of since 1993")
-    # plotext.xlabel("Year\n")
-    # plotext.ylabel(f"{weather_type} in mm")
-    # plotext.plotsize(100,30)
-    # plotext.show()
-    # plotext.clear_data()
-    
-    
-    # plotext.simple_multiple_bar(years, [min_temp, max_temp], labels = ['Min', 'Max'])
     
     
 def thank_you():
