@@ -163,25 +163,43 @@ def find_rows(weather_type):
     print("")
     day_of_year = int(datetime.now().strftime('%j')) 
     all_rows = DF.loc[DF['DOY'] == day_of_year] # Get all rows from column DOY (Day Of Year)
-    
+    years = all_rows["YEAR"].tolist()
     if weather_type == "rainfall":
         col_name = "RAINFALL"
+        rainfall = all_rows[f"{col_name}"].tolist()
+        plotext.bar(years, rainfall, marker = "sd")
+        plotext.title(f"Bar Chart of {weather_type} of since 1993")
+        plotext.xlabel("Year\n")
+        plotext.ylabel(f"{weather_type} in mm")
+        plotext.plotsize(100,30)
+        plotext.show()
+        plotext.clear_data()
     elif weather_type == "minimum temperature":
         col_name = "TEMP_MIN"
+        min_temp = all_rows["TEMP_MIN"].tolist()
+        max_temp = all_rows["TEMP_MAX"].tolist()
+        plotext.multiple_bar(years, [min_temp, max_temp], label = ["min", "max"], width = 2 / 5)
+        plotext.plotsize(150,50)
+        plotext.show()
     elif weather_type == "maximum temperature":
         col_name = "TEMP_MAX"
     
-    years = all_rows["YEAR"].tolist() # Convert dataframe values to list
-    rainfall = all_rows[f"{col_name}"].tolist() 
+    # years = all_rows["YEAR"].tolist() # Convert dataframe values to list
+    # rainfall = all_rows[f"{col_name}"].tolist()
+    # min_temp = all_rows[f"TEMP_MIN"].tolist()
+    # max_temp = all_rows[f"TEMP_MAX"].tolist()
     
 
-    plotext.bar(years, rainfall, marker = "sd")
-    plotext.title(f"Bar Chart of {weather_type} of since 1993")
-    plotext.xlabel("Year\n")
-    plotext.ylabel(f"{weather_type} in mm")
-    plotext.plotsize(100,30)
-    plotext.show()
-    plotext.clear_data()
+    # plotext.bar(years, rainfall, marker = "sd")
+    # plotext.title(f"Bar Chart of {weather_type} of since 1993")
+    # plotext.xlabel("Year\n")
+    # plotext.ylabel(f"{weather_type} in mm")
+    # plotext.plotsize(100,30)
+    # plotext.show()
+    # plotext.clear_data()
+    
+    
+    # plotext.simple_multiple_bar(years, [min_temp, max_temp], labels = ['Min', 'Max'])
     
     
 def thank_you():
