@@ -6,7 +6,7 @@ charset-normalizer==3.1.0
 DateTime==5.1
 google-auth==2.21.0
 google-auth-oauthlib==1.0.0
-gspread==5.10.0
+gspread==5.9.0
 idna==3.4
 jinxed==1.2.0
 numpy==1.25.0
