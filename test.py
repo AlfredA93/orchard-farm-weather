@@ -7,6 +7,7 @@ import pandas as pd
 import gspread
 from google.oauth2.service_account import Credentials
 import blessed
+import time
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -36,7 +37,12 @@ def new_date(new_row):
         print("Format: YYYY-MM-DD")
         date_str = input("Enter the date here:\n")
         if date_str != datetime.today().date().strftime('%Y-%m-%d'):    # Is user date entry today?
-            print("Error - incorrect date entered. Restarting...\n")
+            print("Error - incorrect date entered. Restarting...")
+            time.sleep(1)
+            print("...")
+            time.sleep(1)
+            print("...")
+            time.sleep(1)
             new_date(new_row)                                           # Go back to beginning if date incorrect
             break
         year_num = int(datetime.today().date().strftime('%Y'))          # Create year number
