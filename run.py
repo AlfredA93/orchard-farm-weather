@@ -66,7 +66,6 @@ def check_date(choice):
         if delete_row.lower() == "yes":
             DF.drop(DF.index[-1], inplace=True)  # Credit 1 - See README.md
         elif delete_row.lower() == 'no':
-            thank_you()
             choice = "no"
             return choice
         else:
@@ -134,7 +133,7 @@ def check_inputs(new_row, dont_send):
     for keys, values in user_input_checks.items():
         print(keys, ':', values)
     print("")
-    send_inputs = input("Please type 'yes' to send and 'no' to finish.\n")
+    send_inputs = input("Type 'yes' to send, 'no' to continue to charts.\n")
     if send_inputs.lower() == "yes":
         send_new_row(new_row)
     elif send_inputs.lower() == 'no':
@@ -198,7 +197,6 @@ def find_rows(weather_type):
     elif weather_type == "contrasting temperatures":
         plotext.multiple_bar(yrs, [max, min], label=["max", "min"], width=1/5)
         plotext.ylabel("Temperature in °C")
-        plotext.xaxes(50)
 
     plotext.show()
     plotext.clear_data()
@@ -213,6 +211,13 @@ def thank_you():
     print("Alongwith understanding the effects of climate change in our area.")
 
 
+def chart_path():
+        chart_question("rainfall")
+        time.sleep(2)
+        chart_question("contrasting temperatures")
+        time.sleep(2)
+        thank_you()
+
 def main():
     """
     Runs all program functions in correct order
@@ -222,20 +227,18 @@ def main():
     dont_send = ""  # Variable for check_input
     new_date(new_row)
     if check_date(choice) == "no":
+        print(TERM.clear)
+        chart_path()
         pass
     else:
         new_weather(new_row, "Rainfall in millimeters", 0, 450, "341.4mm")
         new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")
         new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")
         if check_inputs(new_row, dont_send) == "no":
-            thank_you()
+            chart_path()
             pass
         else:
-            chart_question("rainfall")
-            time.sleep(2)
-            chart_question("contrasting temperatures")
-            time.sleep(2)
-            thank_you()
+            chart_path()
 
 
 main()
