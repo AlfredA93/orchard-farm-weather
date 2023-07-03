@@ -91,12 +91,13 @@ def new_weather(new_row, temp, range1, range2, record_num):
             continue
         else:
             while user_data not in range(range1, range2):               # Checks for excessive input value beyond expected amount.
-                print(f"You typed {user_data} this seems unusual: Current UK record = {record_num}")
+                print(f"You typed a number not in the normal range or a whole number.")
+                print(f"Current UK record = {record_num}")
                 print(f'Please try again.')
                 try:
                     user_data = int(input(f"Enter the {temp} here:\n"))
                 except ValueError:
-                    print("That wasn't a whole number. Please enter a whole number") 
+                    print("Error...") 
             new_row.append(user_data)                                   # Add new data to new row data list               
             break
     return new_row
