@@ -1,6 +1,3 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
 import plotext
 from datetime import datetime
 import pandas as pd
@@ -36,19 +33,19 @@ def new_date(new_row):
         print("Please enter the date today")
         print("Format: YYYY-MM-DD")
         date_str = input("Enter the date here:\n")
-        if date_str != datetime.today().date().strftime('%Y-%m-%d'):    # Is user date entry today?
+        if date_str != datetime.today().date().strftime('%Y-%m-%d'):  # Is user date entry today?
             print("Error - incorrect date entered. Restarting...")
             time.sleep(1)
             print("...")
             time.sleep(1)
             print("...")
             time.sleep(0.5)
-            new_date(new_row)                                           # Go back to beginning if date incorrect
+            new_date(new_row)  # Go back to beginning if date incorrect
             break
-        year_num = int(datetime.today().date().strftime('%Y'))          # Create year number
-        day_num_of_year = int(datetime.now().strftime('%j'))            # Create day of year
-        new_row.append(year_num)                                        # Add year number to new row data list
-        new_row.append(day_num_of_year)                                 # Add day of year to new row data list
+        year_num = int(datetime.today().date().strftime('%Y'))  # Create year number
+        day_num_of_year = int(datetime.now().strftime('%j'))  # Create day of year
+        new_row.append(year_num)  # Add year number to new row data list
+        new_row.append(day_num_of_year)  # Add day of year to new row data list
         return new_row
 
 
@@ -67,7 +64,7 @@ def check_date(choice):
         print("Would you like to delete the entry above and start a new data record?")
         delete_row = input("Type 'yes' or 'no'.\n")
         if delete_row.lower() == "yes":
-            DF.drop(DF.index[-1], inplace=True) # Credit 1 - See README.md
+            DF.drop(DF.index[-1], inplace=True)  # Credit 1 - See README.md
         elif delete_row.lower() == 'no':
             thank_you()
             choice ="no"
@@ -93,10 +90,10 @@ def new_weather(new_row, temp, range1, range2, record_num):
         try:
             user_data = int(input(f"Enter the {temp} here:\n"))
         except ValueError:
-            print("That wasn't a whole number. Please enter a whole number") # If user doesn't enter a number, throws error.
+            print("That wasn't a whole number. Please enter a whole number")  # If user doesn't enter a number, throws error.
             continue
         else:
-            while user_data not in range(range1, range2):               # Checks for excessive input value beyond expected amount.
+            while user_data not in range(range1, range2):  # Checks for excessive input value beyond expected amount.
                 print(f"You typed a number not in the normal range or a whole number.")
                 print(f"Current UK record = {record_num}")
                 print(f'Please try again.')
@@ -104,7 +101,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
                     user_data = int(input(f"Enter the {temp} here:\n"))
                 except ValueError:
                     print("Error...") 
-            new_row.append(user_data)                                   # Add new data to new row data list               
+            new_row.append(user_data)  # Add new data to new row data list               
             break
     return new_row
 
@@ -152,9 +149,9 @@ def send_new_row(new_row):
     """
     Send list of user input data to spreadsheet   
     """
-    DF.loc[len(DF)] = new_row # Credit: Code from sparkbyexmaples.com pandas article. URL in README.md
+    DF.loc[len(DF)] = new_row  # Credit: Code from sparkbyexmaples.com pandas article. URL in README.md
     print("Sending data to spreadsheet.")
-    SHEET.worksheet('data').update([DF.columns.values.tolist()] + DF.values.tolist()) # Credit:Code from gspread with pandas documentation. URL in README.md
+    SHEET.worksheet('data').update([DF.columns.values.tolist()] + DF.values.tolist())  # Credit:Code from gspread with pandas documentation. URL in README.md
     print("Data successfully added to spreadsheet.")
     time.sleep(1.5)
     print(TERM.clear)
@@ -217,15 +214,14 @@ def main():
     new_row = []  # List for new row
     choice = "" 
     dont_send = ""
-    new_date(new_row)                                                     # Today's date input
+    new_date(new_row)  # Today's date input
     #check_date(choice)
     if check_date(choice) == "no":
         pass
     else:    
-        new_weather(new_row, "Rainfall in millimeters", 0, 450, "341.4mm")    # Rainfall input
+        new_weather(new_row, "Rainfall in millimeters", 0, 450, "341.4mm")  # Rainfall input
         new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")  # Min temp input
         new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")  # Max temp input
-        #check_inputs(new_row, dont_send)
         if check_inputs(new_row, dont_send) == "no":
             thank_you()
             pass
