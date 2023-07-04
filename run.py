@@ -243,7 +243,7 @@ def finish_question():
     Depending on the user input, it directs the user to the function.
     """
     print("")
-    print("Have you finished inspecting the charts?")
+    print("Have you finished inspecting the chart(s)?")
     finish_answer = input("When you have, please type 'yes' to finish.\n")
     while finish_answer.lower() not in ("yes", "no"):
         finish_answer = input(
