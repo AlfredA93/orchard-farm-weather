@@ -79,6 +79,8 @@ def check_date(choice):
             return choice
         else:
             print("Error... input wasn't 'yes' or 'no'. Try again.")
+            print("Reloading...")
+            time.sleep(1)
             check_date(choice)
 
 
@@ -154,6 +156,8 @@ def check_inputs(new_row):
         pass
     else:
         print("Error... input wasn't 'yes' or 'no'. Try again.")
+        print("Reloading...")
+        time.sleep(1)
         check_inputs(new_row)
 
 
@@ -176,7 +180,6 @@ def chart_question(weather_type):
     This function asks the user whether they'd like to see a chart of the data.
     It loops around the input until yes or no is chosen.
     """
-    print("")
     print(f"Shall we see a chart for {weather_type} on this day since 1993?\n")
     chart_answer = input("Please type 'yes' to see chart and 'no' continue.\n")
     while chart_answer.lower() not in ("yes", "no"):
@@ -205,7 +208,7 @@ def find_rows(weather_type):
 
     plotext.title(f"Bar Chart of {weather_type.title()} since 1993")
     plotext.xlabel("Year\n")
-    plotext.plotsize(120, 40)
+    plotext.plotsize(100, 30)
 
     if weather_type == "rainfall":
         plotext.bar(yrs, rainfall, width=2/5)
