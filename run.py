@@ -217,7 +217,7 @@ def find_rows(weather_type):
     min_temp = all_rows["TEMP_MIN"].tolist()
     max_temp = all_rows["TEMP_MAX"].tolist()
 
-    plotext.title(f"Bar Chart of {weather_type.title()} since 1993")
+    plotext.title(f"Bar Chart of {weather_type.title()} today since 1993")
     plotext.xlabel("Year\n")
     plotext.plotsize(100, 30)
 
