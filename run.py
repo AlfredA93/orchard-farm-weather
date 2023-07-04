@@ -40,9 +40,9 @@ def new_date(new_row):
     print("Welcome to Orchard Farm Weather Data Collection.")
     print("")
     while True:
-        print("Please enter the date today")
+        print("Please enter the date today.")
         print("\x1B[3mFormat: YYYY-MM-DD\x1B[23m")  # Credit 2 in README.md
-        date_str = input("Enter the date here:\n")
+        date_str = input("Enter today's date here:\n")
         if date_str != datetime.today().date().strftime('%Y-%m-%d'):
             print("Error - incorrect date entered. Restarting...")
             time.sleep(1)
@@ -265,7 +265,7 @@ def thank_you():
     print("")
     print("Your data helps us understand the effects of climate change.")
     print("Alongwith helping us with all future crop plans.")
-    print("Have a lovely rest of you, see you tomorrow.")
+    print("Have a lovely rest of your day, see you tomorrow.")
     print("")
 
 
