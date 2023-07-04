@@ -90,6 +90,7 @@ def check_date(choice):
             print("Reloading...")
             time.sleep(2)
             print(TERM.clear)
+            title()
             check_date(choice)
 
 
