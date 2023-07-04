@@ -26,7 +26,7 @@ def title():
     """
     This function prints the Title whenever this function is called.
     """
-    print(TERM.skyblue1("Orchard Farm Weather Data Collection."))
+    print("Orchard Farm Weather Data Collection.")
 
 
 def new_date(new_row):
@@ -37,7 +37,7 @@ def new_date(new_row):
     These are the Year Number and Day of Year.
     """
     print(TERM.clear)
-    print(TERM.skyblue1("Welcome to Orchard Farm Weather Data Collection."))
+    print("Welcome to Orchard Farm Weather Data Collection.")
     print("")
     while True:
         print("Please enter the date today")
