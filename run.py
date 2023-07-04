@@ -269,6 +269,11 @@ def thank_you():
     print("Alongwith helping us with all future crop plans.")
     print("Have a lovely rest of your day, see you tomorrow.")
     print("")
+    print(
+        "(\x1B[3mIf you'd like to enter more data, \x1B[23m)", 
+        "\x1B[3mplease refresh the page or click the Run \x1B[23m)",
+        "\x1B[3mProgram button above the terminal\x1B[23m)"
+        )
 
 
 def chart_path():
