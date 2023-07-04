@@ -4,11 +4,49 @@ Orchard Farm Weather Data Collection is an app for employees of Orchard Farm, Su
 
 ![am i responsive]()
 
+## How to use
+------
+Orchard Farm Weather Data Collection is a terminal based data input application. The steps are simple to follow and the user is guided through the prompts in terminal. Through the apps progression, the user will go through the following:
+- Enter Today's Date
+- Enter Rainfall in millimeters on this date
+- Enter Lowest Temperature in Celcius on this date
+- Enter the Highest Temperature in Celcius on this date
+- Rainfall Chart
+- Comparative Temperature Chart
+
 ## Features 
 ------
--
--
--
+
+- Date Entry
+    - Here the user can enter the 
+    ![date]()
+    ![date check]()
+    ![rainfall]()
+    ![low temperatures]()
+    ![high temperatures]()
+    ![values]()
+    ![values swap]()
+    ![low temp swap]()
+    ![high temp swap]()
+    ![send data]()
+
+
+
+
+- Chart Analysis
+
+    ![chart question]()
+    ![single question]()
+    ![rainfall chart]()
+    ![temp chart]()
+- Thank you Page
+
+    ![finish question]()
+    ![thank you message]()
+- Input Validation
+
+    - All inputs have input validators, which ask the user for either for set words (yes or no), or an integer (whole number). 
+    - Please see [Testing](assets/documentation//TESTING.md) page for more detailed explanation of this.
 -
 -
 -
@@ -20,11 +58,9 @@ Orchard Farm Weather Data Collection is an app for employees of Orchard Farm, Su
 
 ## Testing
 ------
-
+**CI PEP8 Python Linter**
 ### **Validator Testing**
-
-- **CI PEP8 Python Linter**
-
+- Please see [Testing](assets/documentation//TESTING.md) page
 ### **Bugs**
 
 - Problem 1:
