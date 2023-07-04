@@ -1,32 +1,99 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Orchard Farm Weather Data Collection
 
-Welcome,
+Orchard Farm Weather Data Collection is an app for employees of Orchard Farm, Suffolk UK, to input weather data that they have collected for each day. This app then inputs this data into a spreadsheet and brings back a chart of the data, so the user can see the changes in the weather since 1993. The applications aim is to collect data for future use and display comparative historical data with the aim of atmospheric insight - to make the user aware of weather changes and how climate change is affecting the area in Suffolk. You can visit the site [here](https://orchard-farm-weather-9b130ffa81fb.herokuapp.com/).
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+![am i responsive]()
 
-## Reminders
+## Features 
+------
+-
+-
+-
+-
+-
+-
+-
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+### **Potential Future Features**
+-
+-
 
-## Creating the Heroku app
+## Testing
+------
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+### **Validator Testing**
 
-1. `heroku/python`
-2. `heroku/nodejs`
+- **CI PEP8 Python Linter**
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### **Bugs**
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+- Problem 1:
+    - *Solution 1:`code`*
 
-Connect your GitHub repository and deploy as normal.
+- Problem 2:
+    - *Solution 2:* 
+    ![Description](photo-source)
 
-## Constraints
+- Problem 3:
+    - *Solution 3:*
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+- Problem 4:
+    - *Solution 4:*
+    ![photo]()
 
----
+- Problem 5:
+    - *Solution 5:
 
-Happy coding!
+- Problem 6: 
+    - *Solution 6:*
+#### **Unfixed Bugs**
+
+- None
+
+## Mistakes
+------
+
+Mistake
+- *Solution:*
+
+![photo]()
+
+## Deployment
+------
+
+![photo]()
+![photo]()
+
+## Design - Flow Chart
+------
+
+### Python Libraries Used and Why?
+-
+-
+-
+-
+
+## Credits 
+------
+### **Code**
+
+![Description](photo-source)
+
+- [Description](link)
+
+![Description](photo-source)
+
+- [Description](link)
+
+### **Helpsheets and Learning Resources**
+
+- 
+
+- My mentor Alex was absolutely brilliant in his support throughout this project. Continually suggesting ways to continue development of the project and helping to find suitable libraries for a terminal based application.
+
+- [Description](link)
+- [Description](link)
+- [Description](link)
+- [Description](link)
+- [Description](link)
+- [Description](link)
