@@ -21,6 +21,8 @@ DF = pd.DataFrame(SHEET.worksheet('data').get_all_records())
 
 TERM = blessed.Terminal()
 
+TITLE_2 = print("Orchard Farm Weather Data Collection.")
+
 
 def new_date(new_row):
     """
@@ -93,7 +95,7 @@ def new_weather(new_row, temp, range1, range2, record_num):
     - Highest temperature today
     """
     print(TERM.clear)
-    print("Orchard Farm Weather Data Collection.")
+    TITLE_2
     print("")
     while True:
         print(f"{temp} today.")
@@ -127,7 +129,7 @@ def check_inputs(new_row):
     Check with user that they want to send inputs to spreadsheet.
     """
     print(TERM.clear)
-    print("Orchard Farm Weather Data Collection.")
+    TITLE_2
     print("")
 
     low_temp = new_row[3]
@@ -286,6 +288,7 @@ def main():
         new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")
         new_weather(new_row, "Highest temperature in °C", -40, 50, "40.3°C")
         check_inputs(new_row)
+        TITLE_2
         chart_path()
 
 
