@@ -172,9 +172,11 @@ def send_new_row(new_row):
     """
     DF.loc[len(DF)] = new_row  # Credit: Code from sparkbyexmaples.com
     print("Sending data to spreadsheet.")
-    DF_col_val = DF.columns.values
-    DF_val = DF.values
-    SHEET.worksheet('data').update([DF_col_val.tolist()] + DF_val.tolist())
+    
+    SHEET.worksheet('data').update(
+        [DF.columns.values.tolist()] +
+        DF.values.tolist()
+        )
     print("Data successfully added to spreadsheet.")
     time.sleep(1.5)
     print(TERM.clear)
