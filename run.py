@@ -230,7 +230,7 @@ def finish_question():
     """
     print("")
     print("Have you finished inspecting the charts?")
-    finish_answer = input("Please type 'yes' to finish.\n")
+    finish_answer = input("When you have, please type 'yes' to finish.\n")
     while finish_answer.lower() not in ("yes", "no"):
         finish_answer = input("Error. Input wasn't 'yes' or 'no'. Try again.\n")
     if finish_answer.lower() == "yes":
@@ -246,6 +246,8 @@ def thank_you():
     Thank you section.
     This is the final stage of the programme.
     """
+    plotext.clear_terminal()
+    print(TERM.clear)
     print("")
     print("Thank you for using Orchard Farm Weather Data Collection.")
     print("Your data helps us understand the effects of climate change.")
