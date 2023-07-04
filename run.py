@@ -1,10 +1,11 @@
-import plotext
 from datetime import datetime
-import pandas as pd
+import time
 import gspread
 from google.oauth2.service_account import Credentials
+import pandas as pd
+import plotext
 import blessed
-import time
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -280,7 +281,6 @@ def main():
     """
     new_row = []  # List for new row
     choice = ""  # Variable for check_date
-    dont_send = ""  # Variable for check_input
     new_date(new_row)
     if check_date(choice) == "no":
         print(TERM.clear)
