@@ -248,10 +248,11 @@ def thank_you():
     """
     plotext.clear_terminal()
     print(TERM.clear)
-    print("")
     print("Thank you for using Orchard Farm Weather Data Collection.")
+    print("")
     print("Your data helps us understand the effects of climate change.")
-    print("Also importantly, helping us with all future crop plans.")
+    print("Alongwith helping us with all future crop plans.")
+    print("Have a lovely rest of you, see you tomorrow.")
     print("")
 
 
