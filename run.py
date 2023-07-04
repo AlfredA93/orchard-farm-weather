@@ -244,8 +244,8 @@ def thank_you():
     """
     print("")
     print("Thank you for using Orchard Farm Weather Data Collection.")
-    print("This will help with all future crop plans.")
-    print("Also helping to understand the effects of climate change.")
+    print("Your data helps us understand the effects of climate change.")
+    print("Also importantly, helping us with all future crop plans.")
     print("")
 
 
