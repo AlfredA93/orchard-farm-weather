@@ -28,6 +28,7 @@ def title():
     This function prints the Title whenever this function is called.
     """
     print("Orchard Farm Weather Data Collection.")
+    print("")
 
 
 def new_date(new_row):
@@ -91,6 +92,7 @@ def check_date(choice):
             time.sleep(2)
             print(TERM.clear)
             title()
+            print("")
             check_date(choice)
 
 
@@ -103,7 +105,6 @@ def new_weather(new_row, temp, range1, range2, record_num):
     """
     print(TERM.clear)
     title()
-    print("")
     while True:
         print(f"{temp} today.")
         print("Please enter a whole number. \x1B[3mExample: 12\x1B[23m")
@@ -137,7 +138,6 @@ def check_inputs(new_row):
     """
     print(TERM.clear)
     title()
-    print("")
 
     low_temp = new_row[3]
     high_temp = new_row[4]
