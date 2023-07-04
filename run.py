@@ -205,8 +205,8 @@ def find_rows(weather_type):
     all_rows = DF.loc[DF['DOY'] == day_of_year]
     yrs = all_rows["YEAR"].tolist()
     rainfall = all_rows["RAINFALL"].tolist()
-    min = all_rows["TEMP_MIN"].tolist()
-    max = all_rows["TEMP_MAX"].tolist()
+    min_temp = all_rows["TEMP_MIN"].tolist()
+    max_temp = all_rows["TEMP_MAX"].tolist()
 
     plotext.title(f"Bar Chart of {weather_type.title()} since 1993")
     plotext.xlabel("Year\n")
@@ -217,7 +217,10 @@ def find_rows(weather_type):
         plotext.ylabel("Rainfall in mm")
 
     elif weather_type == "contrasting temperatures":
-        plotext.multiple_bar(yrs, [max, min], label=["max", "min"], width=1/5)
+        plotext.multiple_bar(
+            yrs, [max_temp, min_temp],
+            label=["max", "min"],
+            width=1/5)
         plotext.ylabel("Temperature in °C")
 
     plotext.show()
