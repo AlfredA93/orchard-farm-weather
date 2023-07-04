@@ -22,6 +22,7 @@ DF = pd.DataFrame(SHEET.worksheet('data').get_all_records())
 
 TERM = blessed.Terminal()
 
+
 def title():
     """
     This function prints the Title whenever this function is called.
@@ -176,8 +177,8 @@ def send_new_row(new_row):
     """
     DF.loc[len(DF)] = new_row  # Credit: Code from sparkbyexmaples.com
     print("Sending data to spreadsheet.")
-    
-    SHEET.worksheet('data').update(  
+
+    SHEET.worksheet('data').update(
         [DF.columns.values.tolist()] +
         DF.values.tolist()
         )
@@ -245,14 +246,15 @@ def finish_question():
     print("Have you finished inspecting the charts?")
     finish_answer = input("When you have, please type 'yes' to finish.\n")
     while finish_answer.lower() not in ("yes", "no"):
-        finish_answer = input("Error. Input wasn't 'yes' or 'no'. Try again.\n")
+        finish_answer = input(
+            "Error. Input wasn't 'yes' or 'no'. Try again.\n")
     if finish_answer.lower() == "yes":
         pass
     elif finish_answer.lower() == "no":
         print("Enjoy inspecting the charts!")
         time.sleep(3)
         finish_question()
-    
+
 
 def thank_you():
     """
