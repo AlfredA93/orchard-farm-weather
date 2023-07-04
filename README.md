@@ -18,39 +18,47 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 ------
 
 - Date Entry
-    - Here the user can enter the 
-    ![date]()
-    ![date check]()
-    ![rainfall]()
-    ![low temperatures]()
-    ![high temperatures]()
-    ![values]()
-    ![values swap]()
-    ![low temp swap]()
-    ![high temp swap]()
-    ![send data]()
-
-
+    - Here the user can enter todays date.
+    ![date](/assets/documentation/images.webp/feature-date.webp)
+    - The app will then check with the spreadsheet where the data is stored whether there has been an entry for today already. The app only stores one data row per day.
+    ![date check](/assets/documentation/images.webp/feature-datecheck.webp)
+    - The user can input the millimeters of rainfall as a whole number. Any float numbers (decimal place numbers) or any inputs containing characters will be rejected and the user will be asked for a whole number. Please see [Testing](assets/documentation//TESTING.md) page for more detailed explanation of this.
+    ![rainfall](/assets/documentation/images.webp/feature-rain.webp)
+    - The user can input the the lowest temperature that day as a whole number. Any float numbers (decimal place numbers) or any inputs containing characters will be rejected and the user will be asked for a whole number. Please see [Testing](assets/documentation//TESTING.md) page for more detailed explanation of this.
+    ![low temperatures](/assets/documentation/images.webp/feature-lowtemp.webp)
+    - The user can input the highest temperature that day as a whole number. Any float numbers (decimal place numbers) or any inputs containing characters will be rejected and the user will be asked for a whole number. Please see [Testing](assets/documentation//TESTING.md) page for more detailed explanation of this.
+    ![high temperatures](/assets/documentation/images.webp/)
+    - The user will see the values they inputed to verify whether they would like these data values added to the spreadsheet records.
+    ![values](/assets/documentation/images.webp/feature-values.webp)
+    - If the user accidently enters the highest and lowest numbers in the wrong input boxes, the app detects this and swaps the values over. In the three images below we can see how this happens.
+    ![low temp swap](/assets/documentation/images.webp/feature-lowtemp-swap.webp)
+    ![high temp swap](/assets/documentation/images.webp/feature-hightemp-swap.webp)
+    ![values swap](/assets/documentation/images.webp/feature-values-swap.webp)
+    - Once the user enters yes, the data will be sent to the spreadsheet and data added as a new row. If the user enters no, then the app will not send the data to the spreadsheet and will progress the user to the next stage of the process - charts.
+    ![send data](/assets/documentation/images.webp/feature-send.webp)
 
 
 - Chart Analysis
+    - The user is asked whether they'd like to view a chart of the rainfall data on this day compared with each year since 1993.
+    ![chart question](/assets/documentation/images.webp/chart-question.webp)
+    - If they select yes, they then see the rainfall for that date.  If they select no, then the app progresses to the next stage without displaying the chart.
+    ![rainfall chart](/assets/documentation/images.webp/chart-rain.webp)
+    - They are then asked if they want to view a chart comparing the min and max temperatures since 1993.
+    ![single question](/assets/documentation/images.webp/chart-question-one.webp)
+    - If they select yes, the chart is presented. If they select no, then the app progresses to the next stage without displaying the chart.
+    ![temp chart](/assets/documentation/images.webp/chart-temps.webp)
+    - The final part of the chart analysis if when the user is asked whether they are finished viewing the charts. If the user selects yes, then it clears the terminal and the thank you message is displayed. If the user selects no, then an encouraging message is displayed. If the user enters anything else, an error message appears. Please see [Testing](assets/documentation//TESTING.md) page for more detailed explanation of this.
+    ![finish question](/assets/documentation/images.webp/finish-question.webp)
 
-    ![chart question]()
-    ![single question]()
-    ![rainfall chart]()
-    ![temp chart]()
 - Thank you Page
+    - The thank you page is the last part of the application, where it thanks the user for its use of the application and tells the user how to enter new data, if necessary.
 
-    ![finish question]()
-    ![thank you message]()
+    ![thank you message](/assets/documentation/images.webp/thankyou-message.webp)
+
 - Input Validation
 
     - All inputs have input validators, which ask the user for either for set words (yes or no), or an integer (whole number). 
     - Please see [Testing](assets/documentation//TESTING.md) page for more detailed explanation of this.
--
--
--
--
 
 ### **Potential Future Features**
 -
@@ -120,6 +128,9 @@ Mistake
 ![Description](photo-source)
 
 - [Description](link)
+
+### Technology
+- https://tiny-img.com/webp/ webp converter for README images
 
 ### **Helpsheets and Learning Resources**
 
