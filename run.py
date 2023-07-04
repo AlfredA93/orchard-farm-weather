@@ -37,7 +37,7 @@ def new_date(new_row):
     These are the Year Number and Day of Year.
     """
     print(TERM.clear)
-    print("Welcome to Orchard Farm Weather Data Collection.")
+    print(TERM.skyblue1("Welcome to Orchard Farm Weather Data Collection."))
     print("")
     while True:
         print("Please enter the date today.")
