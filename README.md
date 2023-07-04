@@ -149,35 +149,43 @@ If future features are added, for example a Menu System, where the user could ch
 
 ## Python Libraries Used and Why?
 ------
--
--
--
--
+- `gspread`: I used gspread to access google spreadsheets, where the data is being stored for this application. It is a library with useful data manipulation functions and allows us to
+-`google-auth`: I used Google Auth library to handle the Credentials for the API calls between the application and google sheets.
+-`pandas`: I used pandas to create a dataframe within the application, pandas, this solved a bug I had where I was making too many API calls to Google Sheets. With Pandas, I could make 1 API call and put all the data into one dataframe to later manipulate and then send 1 more API call later to update the spreadsheet accordingly. 
+-`plotext`: I used plotext to plot charts in my application. This library allows developers to plot charts within the terminal itself. Which was perfect for this application.
+-`blessed`: I used blessed to control terminal functions, i.e. to clear the Terminal for each new function call. This allows a simple and clean looking terminal space for the user.
+-`time`: I used time, to delay some function calls within the application. For example, when the user enters an input which causes an error, the application prints the reason why and then pauses for a few seconds before performing the function again. It enhances a good user experience.
+-`datetime`: I used datetime library to access the date for the instance of when the user is using the application. It is used for input validation and data manipulation.
 
 ## Credits 
 ------
 ### **Code**
+- Code Institute for the deployment terminal templates.
+Data - https://power.larc.nasa.gov/data-access-viewer/
+
+[Italics in print statements](https://python-forum.io/thread-27264.html)
+
+- [Select rows from a dataframe](https://stackoverflow.com/questions/17071871/how-do-i-select-rows-from-a-dataframe-based-on-column-values)
 
 ![Description](photo-source)
 
-- [Description](link)
-
-![Description](photo-source)
-
-- [Description](link)
-
-### Technology
-- https://tiny-img.com/webp/ webp converter for README images
+- [UK Weather Records](https://en.wikipedia.org/wiki/United_Kingdom_weather_records)
 
 ### Helpsheets and Learning Resources
 
-- 
-
 - My mentor Alex was absolutely brilliant in his support throughout this project. Continually suggesting ways to continue development of the project and helping to find suitable libraries for a terminal based application.
 
-- [Description](link)
-- [Description](link)
-- [Description](link)
-- [Description](link)
-- [Description](link)
-- [Description](link)
+- I researched through the libraries alot for this project. I learnt so much from the brilliant documentation online. Below are the links for the main sources of learning for this project.
+
+- [Try, Except, Else explainer](https://www.101computing.net/number-only/)
+- [Gspread documentation](https://buildmedia.readthedocs.org/media/pdf/gspread/latest/gspread.pdf)
+- [Plotext documentation](https://pypi.org/project/plotext/)
+- [Plotext explainer](https://www.youtube.com/watch?v=9NSo6hQRqqc&t=215s)
+- [Looping through a dictionary](https://www.w3schools.com/python/gloss_python_loop_dictionary_items.asp)
+- [Using datetime](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes)
+- [Converting date to number](https://www.geeksforgeeks.org/python-convert-day-number-to-date-in-particular-year/)
+- [Python sleep attribute](https://realpython.com/python-sleep/)
+- [If Pandas dataframe is empty](https://stackoverflow.com/questions/36543606/python-pandas-check-if-dataframe-is-not-empty)
+
+### Technology
+- [Tiny-img webp image converter](https://tiny-img.com/webp/). Used for README image conversion.
