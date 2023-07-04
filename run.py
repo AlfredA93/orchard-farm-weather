@@ -197,7 +197,6 @@ def find_rows(weather_type):
     Rainfall, minimum and maximum temperatures.
     It then shows a different chart depending on the weather_type entered.
     """
-    print("Orchard Farm Weather Data Collection.")
     print("")
 
     day_of_year = int(datetime.now().strftime('%j'))
@@ -224,6 +223,7 @@ def find_rows(weather_type):
 
 
 def finish_question():
+    print("")
     print("Have you finished inspecting the charts?")
     finish_answer = input("Please type 'yes' to finish.\n")
     while finish_answer.lower() not in ("yes", "no"):
@@ -231,6 +231,10 @@ def finish_question():
     if finish_answer.lower() == "yes":
         print(TERM.clear)
         thank_you()
+    elif finish_answer.lower() == "no":
+        print("Enjoy inspecting the charts!")
+        time.sleep(3)
+        finish_question()
     
 
 def thank_you():
