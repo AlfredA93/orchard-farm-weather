@@ -80,7 +80,7 @@ def check_date(choice):
         else:
             print("Error... input wasn't 'yes' or 'no'. Try again.")
             print("Reloading...")
-            time.sleep(1)
+            time.sleep(2)
             check_date(choice)
 
 
@@ -153,11 +153,12 @@ def check_inputs(new_row):
     if send_inputs.lower() == "yes":
         send_new_row(new_row)
     elif send_inputs.lower() == 'no':
+        print("")
         pass
     else:
         print("Error... input wasn't 'yes' or 'no'. Try again.")
         print("Reloading...")
-        time.sleep(1)
+        time.sleep(2)
         check_inputs(new_row)
 
 
