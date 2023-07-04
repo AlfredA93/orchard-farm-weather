@@ -4,6 +4,13 @@ Orchard Farm Weather Data Collection is an app for employees of Orchard Farm, Su
 
 ![am i responsive](/assets/documentation/images.webp/amiresponsive.webp)
 
+## Design and Inspiration
+------
+- I was inspired to make a weather data collection app due to living and working on a farm with my parents during the pandemic. I learnt so much during my time there and was interested in how each day they wrote down the rainfall each day by hand in their diary. I wanted to create an application that could span generations and the data be safe and accessible from anywhere with an internet connection.
+- Below is the flowchart I created as a guide when I was first visualising how the code would be represented.
+
+![flowchart](/assets/documentation/images.webp/flowchart.webp)
+
 ## How to use
 ------
 Orchard Farm Weather Data Collection is a terminal based data input application. The steps are simple to follow and the user is guided through the prompts in terminal. Through the apps progression, the user will go through the following:
@@ -67,7 +74,7 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 ![finish question](/assets/documentation/images.webp/finish-question.webp)
 
 
-### Thank you Page
+### Thank You
 - The thank you page is the last part of the application, where it thanks the user for its use of the application and tells the user how to enter new data, if necessary.
 
 ![thank you message](/assets/documentation/images.webp/thankyou-message.webp)
@@ -92,19 +99,20 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 - Please see [Testing](assets/documentation//TESTING.md) page
 ### Bugs
 
-- Problem 1: Attempting to print a dictionary with a for loop however the values weren’t being printed out in the terminal and the code was running without errors.
-    - *Solution 1:`items()` was missing from the end of the for loop.*
-- Problem 2: When validating the user input for the weather data. If user inputted a value over the range over the accepted values, causing the function to catch the input in the `else` code; then on the second input attempt entered an float number, it causes the app to crash due to trying to convert float into int. 
-    - *Solution 2: Add a `try`/`except` loop to the `while not in range()` part of the function. Adding a `valueError` to the except; to catch any `valueError` responses that then processes a new user input. I then changed the float to an integer, as catching float errors was causing more bugs to occur than catching integers* 
-- Problem 3: Google Sheets API read limit of 300 requests per minute exceeding. Due to the loop sending individual requests for each row value, instead of collecting the information in one batch call.
+- **Problem 1**: Attempting to print a dictionary with a for loop however the values weren’t being printed out in the terminal and the code was running without errors.
+- *Solution 1:`items()` was missing from the end of the for loop.*
+- **Problem 2**: When validating the user input for the weather data. If user inputted a value over the range over the accepted values, causing the function to catch the input in the `else` code; then on the second input attempt entered an float number, it causes the app to crash due to trying to convert float into int. 
+- *Solution 2: Add a `try`/`except` loop to the `while not in range()` part of the function. Adding a `valueError` to the except; to catch any `valueError` responses that then processes a new user input. I then changed the float to an integer, as catching float errors was causing more bugs to occur than catching integers* 
+- **Problem 3**: Google Sheets API read limit of 300 requests per minute exceeding. Due to the loop sending individual requests for each row value, instead of collecting the information in one batch call.
 
 ![API bug warning](/assets/documentation/images.webp/bug-api-warning.webp)
 
 ![API bug code](/assets/documentation/images.webp/bug-api-code.webp)
 
-    - *Solution 3: Use Pandas library, to collect all the data we need in one API call in the beginning, then we can manipulate the data easily within a pandas dataframe on the local system. Write funtion to a new one using pandas library functions*
-- Problem 4: After updating my requirements.txt using a virtual environment, a warning message was arising in the terminal during the app running, which wasn't happening beforehand when testing. The warning message was about future deprecation of code syntax on a function used in gspread.
-    - *Solution 4: Change the version of gspread used in the requirements.txt file from 5.10.0 to 5.9.0 - as was used in all testing*
+- *Solution 3: Use Pandas library, to collect all the data we need in one API call in the beginning, then we can manipulate the data easily within a pandas dataframe on the local system. Write funtion to a new one using pandas library functions*
+- **Problem 4**: After updating my requirements.txt using a virtual environment, a warning message was arising in the terminal during the app running, which wasn't happening beforehand when testing. The warning message was about future deprecation of code syntax on a function used in gspread.
+- *Solution 4: Change the version of gspread used in the requirements.txt file from 5.10.0 to 5.9.0 - as was used in all testing*
+
 ![GSpread Version bug](/assets/documentation/images.webp/bug-version.webp)
 
 ### Unfixed Bugs
@@ -119,13 +127,19 @@ Mistake: I made a few of my git commits too long, by a few characters.
 
 ## Deployment
 ------
-
-![photo]()
-![photo]()
-
-## Design and Inspiration
-------
-![flowchart](/assets/documentation/images.webp/flowchart.webp)
+I deployed the app using the website Heroku, which hosts web based applications. Once you have an account with Heroku, follow these are the steps for deployment - 
+- Create a new app 
+![create new app](/assets/documentation/images.webp/deployment-new.webp)
+- Name the app
+![Name the app](/assets/documentation/images.webp/deployment-name.webp)
+- Connect the app to Github and find the repository where the code is stored and click connect.
+![Github connect](/assets/documentation/images.webp/deployment-github.webp)
+- Go to the Settings Tab within the Heroku app. Find the Config Vars and add `PORT` in the key and `8000` in the value. Then for CREDS in the `key` and add the credentials that are copied from the .json credentials file in the IDE. I have blacked mine out, as each set of credentials are unique and private.
+![Settings tab, creds](/assets/documentation/images.webp/deployment-creds.webp)
+- Add the buildpacks in this order: Python, NodeJS.
+![buildpacks](/assets/documentation/images.webp/deployment-buildpacks.webp)
+- Go back to the Deploy tab and select automatically update Heroku whenever a new edit is received by GitHub.
+![deploy](/assets/documentation/images.webp/deployment-deploy.webp)
 
 ## Data Model
 ------
