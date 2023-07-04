@@ -22,7 +22,7 @@ DF = pd.DataFrame(SHEET.worksheet('data').get_all_records())
 
 TERM = blessed.Terminal()
 
-TITLE_2 = print("Orchard Farm Weather Data Collection.")
+TITLE_2 = print(TERM.skyblue1("Orchard Farm Weather Data Collection."))
 
 
 def new_date(new_row):
@@ -33,7 +33,7 @@ def new_date(new_row):
     These are the Year Number and Day of Year.
     """
     print(TERM.clear)
-    print("Welcome to Orchard Farm Weather Data Collection.")
+    print(TERM.skyblue1("Welcome to Orchard Farm Weather Data Collection."))
     print("")
     while True:
         print("Please enter the date today")
@@ -173,10 +173,11 @@ def send_new_row(new_row):
     DF.loc[len(DF)] = new_row  # Credit: Code from sparkbyexmaples.com
     print("Sending data to spreadsheet.")
     
-    SHEET.worksheet('data').update(
+    SHEET.worksheet('data').update(  
         [DF.columns.values.tolist()] +
         DF.values.tolist()
         )
+
     print("Data successfully added to spreadsheet.")
     time.sleep(1.5)
     print(TERM.clear)
