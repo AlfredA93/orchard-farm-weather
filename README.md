@@ -77,36 +77,36 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 - All inputs have input validators, which ask the user for either for set words (yes or no), or an integer (whole number). 
 - Please see [Testing](assets/documentation//TESTING.md) page for more detailed explanation of this.
 
-### **Potential Future Features**
+### Potential Future Features
 - Add a menu system at the front of the application, so users can decide whether they wish to just view charts or enter data
 - Add more charts showcasing varying values.
 
 ## Testing
 ------
-## **CI PEP8 Python Linter**
-### **Input Validatation Tests**
+## CI PEP8 Python Linter
+- I checked all of my python code through the Code Institute Python Linter, which came back all clear.
+
+![CI python linter pass](/assets/documentation/images.webp/python-linter-clear.webp)
+
+### Input Validatation Tests
 - Please see [Testing](assets/documentation//TESTING.md) page
 ### Bugs
 
-- Problem 1:
-    - *Solution 1:`code`*
+- Problem 1: Attempting to print a dictionary with a for loop however the values weren’t being printed out in the terminal and the code was running without errors.
+    - *Solution 1:`items()` was missing from the end of the for loop.*
+- Problem 2: When validating the user input for the weather data. If user inputted a value over the range over the accepted values, causing the function to catch the input in the `else` code; then on the second input attempt entered an float number, it causes the app to crash due to trying to convert float into int. 
+    - *Solution 2: Add a `try`/`except` loop to the `while not in range()` part of the function. Adding a `valueError` to the except; to catch any `valueError` responses that then processes a new user input. I then changed the float to an integer, as catching float errors was causing more bugs to occur than catching integers* 
+- Problem 3: Google Sheets API read limit of 300 requests per minute exceeding. Due to the loop sending individual requests for each row value, instead of collecting the information in one batch call.
 
-- Problem 2:
-    - *Solution 2:* 
-    ![Description](photo-source)
+![API bug warning](/assets/documentation/images.webp/bug-api-warning.webp)
 
-- Problem 3:
-    - *Solution 3:*
+![API bug code](/assets/documentation/images.webp/bug-api-code.webp)
 
-- Problem 4:
-    - *Solution 4:*
-    ![photo]()
+    - *Solution 3: Use Pandas library, to collect all the data we need in one API call in the beginning, then we can manipulate the data easily within a pandas dataframe on the local system. Write funtion to a new one using pandas library functions*
+- Problem 4: After updating my requirements.txt using a virtual environment, a warning message was arising in the terminal during the app running, which wasn't happening beforehand when testing. The warning message was about future deprecation of code syntax on a function used in gspread.
+    - *Solution 4: Change the version of gspread used in the requirements.txt file from 5.10.0 to 5.9.0 - as was used in all testing*
+![GSpread Version bug](/assets/documentation/images.webp/bug-version.webp)
 
-- Problem 5:
-    - *Solution 5:
-
-- Problem 6: 
-    - *Solution 6:*
 ### Unfixed Bugs
 
 - None
@@ -114,10 +114,8 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 ## Mistakes
 ------
 
-Mistake
-- *Solution:*
-
-![photo]()
+Mistake: I made a few of my git commits too long, by a few characters. 
+- *Solution: Commit more often, with less changes to cover in a commit message* 
 
 ## Deployment
 ------
@@ -125,11 +123,18 @@ Mistake
 ![photo]()
 ![photo]()
 
-## Design - Flow Chart
+## Design and Inspiration
 ------
 ![flowchart](/assets/documentation/images.webp/flowchart.webp)
 
-### Python Libraries Used and Why?
+## Data Model
+------
+I didn't use a OOP model such as class for this project; as the structure was quite straight forward and implementing this would not suitable for this project. 
+
+If future features are added, for example a Menu System, where the user could choose various types of chart or whether they wish to only input data and not visualise charts, then I would implement a class based model, however at this moment of writing, I would need to learn more Python skills to implement these extra features. 
+
+## Python Libraries Used and Why?
+------
 -
 -
 -
