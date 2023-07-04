@@ -224,6 +224,10 @@ def find_rows(weather_type):
 
 
 def finish_question():
+    """
+    This function asks the user whether they have finished with the charts
+    Depending on the user input, it directs the user to the function.
+    """
     print("")
     print("Have you finished inspecting the charts?")
     finish_answer = input("Please type 'yes' to finish.\n")
