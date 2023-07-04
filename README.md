@@ -138,24 +138,25 @@ I deployed the app using the website Heroku, which hosts web based applications.
 ![Settings tab, creds](/assets/documentation/images.webp/deployment-creds.webp)
 - Add the buildpacks in this order: Python, NodeJS.
 ![buildpacks](/assets/documentation/images.webp/deployment-buildpacks.webp)
-- Go back to the Deploy tab and select automatically update Heroku whenever a new edit is received by GitHub.
+- Go back to the Deploy tab and select automatic deploys, so that whenever a new edit is received by GitHub, Heroku also updates the application. Once this has been clicked. Then click deploy branch at the bottom and await for the domain URL to be generated.
 ![deploy](/assets/documentation/images.webp/deployment-deploy.webp)
+- We now have a deployed web application!
 
 ## Data Model
 ------
-I didn't use a OOP model such as class for this project; as the structure was quite straight forward and implementing this would not suitable for this project. 
+I didn't use a OOP model such as class for this project; the structure was quite straight forward and implementing this would not suitable for this project. 
 
 If future features are added, for example a Menu System, where the user could choose various types of chart or whether they wish to only input data and not visualise charts, then I would implement a class based model, however at this moment of writing, I would need to learn more Python skills to implement these extra features. 
 
 ## Python Libraries Used and Why?
 ------
-- `gspread`: I used gspread to access google spreadsheets, where the data is being stored for this application. It is a library with useful data manipulation functions and allows us to
--`google-auth`: I used Google Auth library to handle the Credentials for the API calls between the application and google sheets.
--`pandas`: I used pandas to create a dataframe within the application, pandas, this solved a bug I had where I was making too many API calls to Google Sheets. With Pandas, I could make 1 API call and put all the data into one dataframe to later manipulate and then send 1 more API call later to update the spreadsheet accordingly. 
--`plotext`: I used plotext to plot charts in my application. This library allows developers to plot charts within the terminal itself. Which was perfect for this application.
--`blessed`: I used blessed to control terminal functions, i.e. to clear the Terminal for each new function call. This allows a simple and clean looking terminal space for the user.
--`time`: I used time, to delay some function calls within the application. For example, when the user enters an input which causes an error, the application prints the reason why and then pauses for a few seconds before performing the function again. It enhances a good user experience.
--`datetime`: I used datetime library to access the date for the instance of when the user is using the application. It is used for input validation and data manipulation.
+- `gspread`: I used gspread to access google spreadsheets, where the data is being stored for this application. It is a library with useful data manipulation functions and allows us to access Google Sheets.
+- `google-auth`: I used Google Auth library to handle the Credentials for the API calls between the application and google sheets.
+- `pandas`: I used pandas to create a dataframe within the application, pandas, this solved a bug I had where I was making too many API calls to Google Sheets. With Pandas, I could make 1 API call and put all the data into one dataframe to later manipulate and then send 1 more API call later to update the spreadsheet accordingly. 
+- `plotext`: I used plotext to plot charts in my application. This library allows developers to plot charts within the terminal itself. Which was perfect for this application.
+- `blessed`: I used blessed to control terminal functions, i.e. to clear the Terminal for each new function call. This allows a simple and clean looking terminal space for the user.
+- `time`: I used time, to delay some function calls within the application. For example, when the user enters an input which causes an error, the application prints the reason why and then pauses for a few seconds before performing the function again. It enhances a good user experience.
+- `datetime`: I used datetime library to access the date for the instance of when the user is using the application. It is used for input validation and data manipulation.
 
 ## Credits 
 ------
