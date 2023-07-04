@@ -210,7 +210,7 @@ def find_rows(weather_type):
 
     plotext.title(f"Bar Chart of {weather_type.title()} since 1993")
     plotext.xlabel("Year\n")
-    plotext.plotsize(100, 30)
+    plotext.plotsize(90, 30)
 
     if weather_type == "rainfall":
         plotext.bar(yrs, rainfall, width=2/5)
