@@ -186,6 +186,7 @@ def chart_question(weather_type):
     while chart_answer.lower() not in ("yes", "no"):
         chart_answer = input("Error. Input wasn't 'yes' or 'no'. Try again.\n")
     if chart_answer.lower() == "yes":
+        print(TERM.clear)
         find_rows(weather_type)
 
 
