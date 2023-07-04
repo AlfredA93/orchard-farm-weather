@@ -81,6 +81,7 @@ def check_date(choice):
             print("Error... input wasn't 'yes' or 'no'. Try again.")
             print("Reloading...")
             time.sleep(2)
+            print(TERM.clear)
             check_date(choice)
 
 
