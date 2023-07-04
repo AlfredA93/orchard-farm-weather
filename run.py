@@ -220,6 +220,7 @@ def find_rows(weather_type):
 
     plotext.show()
     plotext.clear_data()
+    print("")
 
 
 def finish_question():
@@ -229,8 +230,7 @@ def finish_question():
     while finish_answer.lower() not in ("yes", "no"):
         finish_answer = input("Error. Input wasn't 'yes' or 'no'. Try again.\n")
     if finish_answer.lower() == "yes":
-        print(TERM.clear)
-        thank_you()
+        pass
     elif finish_answer.lower() == "no":
         print("Enjoy inspecting the charts!")
         time.sleep(3)
