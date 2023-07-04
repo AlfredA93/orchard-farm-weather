@@ -113,9 +113,9 @@ def new_weather(new_row, temp, range1, range2, record_num):
             continue
         else:
             while user_data not in range(range1, range2):
-                print(f"A number not in usual range or not integer was typed.")
+                print("A number not in usual range or not integer was typed.")
                 print(f"Current UK record = {record_num}")
-                print(f'Please try again.')
+                print("Please try again.")
                 try:
                     user_data = int(input(f"Enter the {temp} here:\n"))
                 except ValueError:
@@ -163,7 +163,6 @@ def check_inputs(new_row):
         send_new_row(new_row)
     elif send_inputs.lower() == 'no':
         print("")
-        pass
     else:
         print("Error... input wasn't 'yes' or 'no'. Try again.")
         print("Reloading...")
@@ -294,7 +293,6 @@ def main():
     if check_date(choice) == "no":
         print(TERM.clear)
         chart_path()
-        pass
     else:
         new_weather(new_row, "Rainfall in millimeters", 0, 450, "341.4mm")
         new_weather(new_row, "Lowest temperature in °C", -40, 50, "-27.4°C")
