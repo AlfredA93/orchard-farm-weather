@@ -187,7 +187,6 @@ def chart_question(weather_type):
     while chart_answer.lower() not in ("yes", "no"):
         chart_answer = input("Error. Input wasn't 'yes' or 'no'. Try again.\n")
     if chart_answer.lower() == "yes":
-        print(TERM.clear)
         find_rows(weather_type)
 
 
@@ -198,7 +197,6 @@ def find_rows(weather_type):
     Rainfall, minimum and maximum temperatures.
     It then shows a different chart depending on the weather_type entered.
     """
-    print(TERM.clear)
     print("Orchard Farm Weather Data Collection.")
     print("")
 
@@ -211,7 +209,7 @@ def find_rows(weather_type):
 
     plotext.title(f"Bar Chart of {weather_type.title()} since 1993")
     plotext.xlabel("Year\n")
-    plotext.plotsize(90, 30)
+    plotext.plotsize(100, 30)
 
     if weather_type == "rainfall":
         plotext.bar(yrs, rainfall, width=2/5)
