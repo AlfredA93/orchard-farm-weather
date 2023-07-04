@@ -293,6 +293,7 @@ def main():
     new_date(new_row)
     if check_date(choice) == "no":
         print(TERM.clear)
+        title()
         chart_path()
     else:
         new_weather(new_row, "Rainfall in millimeters", 0, 450, "341.4mm")
