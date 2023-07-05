@@ -163,6 +163,8 @@ If future features are added, for example, a Menu System, where the user could c
 ## Credits 
 ------
 ### **Code**
+Code credits are commented within the code, with a respective number referencing the numbers below.
+
 1. Code Institute for the deployment terminal templates.
 
 2. Historical Weather Data came from [NASA's Weather and Energy Data](https://power.larc.nasa.gov/data-access-viewer/) website.
