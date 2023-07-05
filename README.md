@@ -96,7 +96,7 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 ![CI python linter pass](/assets/documentation/images.webp/python-linter-clear.webp)
 
 ------
-### For further testing details, visit [Testing](assets/documentation//TESTING.md) page.
+### For Manual Testing details, visit [Testing](assets/documentation//TESTING.md) page.
 ------
 
 ### Bugs

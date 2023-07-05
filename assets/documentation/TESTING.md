@@ -3,8 +3,10 @@
 ## Testing
 ------
 
+Testing is carried out througout the development of the project. This is often done before commiting the changes to the main repository, where the file is kept. However sometimes, changes are commited to the main repository before rigorous testing is applied. I have carried out comprehensive testing on the application post deployment and have exampled this in the documentation below.
+
 ### Input Validation
-Every input in the application needs to have input validation, to check the user input is the correct data type and within the range expected for the weather data we are collecting. Below is a table of the requirements that each input need for correct validation.
+Every input in the application needs to have input validation, to check the user input is the correct data type and within the range expected for the weather data we are collecting. Below is a table of the requirements that each input need for correct validation. All inputs will loop, often using a `while` loop with `try`, `except` and `else`, if they do not use a `while` loop, an `if`/`elif`/`else` statement is used in the code. 
 
 | Input                      | Data Type Required | Format        | Range Start  | Range Finish | 
 | :------------------------- | :----------------: | :--------:    | :---------:  | :----------: |
@@ -45,14 +47,23 @@ I will now go through one by one to showcase how these validations appear within
 ![](/assets/documentation/testimages.webp/lowtemp-test-all.webp)
 ![](/assets/documentation/testimages.webp/hightemp-test-all.webp)
 
-- If a user initially inputs an integer outside the expected range, this is caught by an `else` statement, and then with the use of a `while` loop, the user is repeatedly asked for an input until an integer within the correct range is used.
+- If a user initially inputs an integer outside the expected range, this is caught by an `else` statement, and then with the use of a `while` loop, the user is repeatedly asked for an input until an integer within the correct range is used. This is show in the second image below this paragraph.
 
 ![](/assets/documentation/testimages.webp/lowtemp-test-range.webp)
+![](/assets/documentation/testimages.webp/test-code-example.webp)
 
-- String inputs - yes or no answers
+- String inputs - yes or no answers. 
+    - These are often questions asked to the user to govern how the app should progress.
+    - These must be character only, either yes or no.
+    - Capitals may be used within the yes or no inputs. As shown in the second image below.
 
 ![](/assets/documentation/testimages.webp/send-test.webp)
 ![](/assets/documentation/testimages.webp/send-test-yes.webp)
 ![](/assets/documentation/testimages.webp/chart-qu-test.webp)
 ![](/assets/documentation/testimages.webp/chart-qu-test-2.webp)
 ![](/assets/documentation/testimages.webp/finish-test.webp)
+
+### CI PEP8 Python Linter
+- I checked all of my python code through the Code Institute Python Linter, which came back all clear.
+
+![CI python linter pass](/assets/documentation/images.webp/python-linter-clear.webp)
