@@ -1,19 +1,19 @@
 # Orchard Farm Weather Data Collection
 
-Orchard Farm Weather Data Collection is an app for employees of Orchard Farm, Suffolk UK, to input weather data that they have collected for each day. This app then inputs this data into a spreadsheet and brings back a chart of the data, so the user can see the changes in the weather since 1993. The applications aim is to collect data for future use and display comparative historical data with the aim of atmospheric insight - to make the user aware of weather changes and how climate change is affecting the area in Suffolk. You can visit the site [here](https://orchard-farm-weather-9b130ffa81fb.herokuapp.com/).
+Orchard Farm Weather Data Collection is an app for employees of Orchard Farm, Suffolk UK. It is used to input weather data that they have collected for each day. This app then inputs this data into a spreadsheet and brings back a chart of the data, so the user can see the changes in the weather that date since 1993. The applications aim is to collect data for future use and display comparative historical data with the aim of atmospheric insight - to make the user aware of weather changes and how climate change is affecting the area in Suffolk. You can visit the site [here](https://orchard-farm-weather-9b130ffa81fb.herokuapp.com/).
 
 ![am i responsive](/assets/documentation/images.webp/amiresponsive.webp)
 
 ## Design and Inspiration
 ------
-- I was inspired to make a weather data collection app due to living and working on a farm with my parents during the pandemic. I learnt so much during my time there and was interested in how each day they wrote down the rainfall each day by hand in their diary. I wanted to create an application that could span generations and the data be safe and accessible from anywhere with an internet connection.
+- I was inspired to make a weather data collection app from living and working on a farm that my parents managed. I learnt so much during my 3 years there between 2019-2022. I was interested how each day they wrote down the rainfall each day by hand in their diary. I wanted to create an application that could span generations and the data be safe and accessible from anywhere with an internet connection.
 - Below is the flowchart I created as a guide when I was first visualising how the code would be represented.
 
 ![flowchart](/assets/documentation/images.webp/flowchart.webp)
 
 ## How to use
 ------
-Orchard Farm Weather Data Collection is a terminal based data input application. The steps are simple to follow and the user is guided through the prompts in terminal. Through the apps progression, the user will go through the following:
+Orchard Farm Weather Data Collection is a terminal based data input application. The steps are simple to follow and the user is guided through the prompts in the terminal. Through the apps progression, the user will go through the following:
 - Enter Today's Date
 - Enter Rainfall in millimeters on this date
 - Enter Lowest Temperature in Celcius on this date
@@ -32,7 +32,7 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 
 ![date check](/assets/documentation/images.webp/feature-datecheck.webp)
 - The user can input the millimeters of rainfall as a whole number. Any float numbers (decimal place numbers) or any inputs containing characters will be rejected and the user will be asked for a whole number. Please see [Testing](assets/documentation//TESTING.md) page for more detailed explanation of this.
-
+### Weather Data Inputs
 ![rainfall](/assets/documentation/images.webp/feature-rain.webp)
 - The user can input the the lowest temperature that day as a whole number. Any float numbers (decimal place numbers) or any inputs containing characters will be rejected and the user will be asked for a whole number. Please see [Testing](assets/documentation//TESTING.md) page for more detailed explanation of this.
 
@@ -41,7 +41,7 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 
 ![high temperatures](/assets/documentation/images.webp/feature-hightemp.webp)
 - The user will see the values they inputed to verify whether they would like these data values added to the spreadsheet records.
-
+### Input Evaluation
 ![values](/assets/documentation/images.webp/feature-values.webp)
 - If the user accidently enters the highest and lowest numbers in the wrong input boxes, the app detects this and swaps the values over. In the three images below we can see how this happens.
 
@@ -50,7 +50,7 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 ![high temp swap](/assets/documentation/images.webp/feature-hightemp-swap.webp)
 
 ![values swap](/assets/documentation/images.webp/feature-values-swap.webp)
-
+### Spreadsheet Update
 - Once the user enters yes, the data will be sent to the spreadsheet and data added as a new row. If the user enters no, then the app will not send the data to the spreadsheet and will progress the user to the next stage of the process - charts.
 
 ![send data](/assets/documentation/images.webp/feature-send.webp)
@@ -90,28 +90,30 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 
 ## Testing
 ------
-## CI PEP8 Python Linter
+### CI PEP8 Python Linter
 - I checked all of my python code through the Code Institute Python Linter, which came back all clear.
 
 ![CI python linter pass](/assets/documentation/images.webp/python-linter-clear.webp)
 
-### Input Validatation Tests
-- Please see [Testing](assets/documentation//TESTING.md) page
+------
+### For further testing details, visit [Testing](assets/documentation//TESTING.md) page.
+------
+
 ### Bugs
 
-- **Problem 1**: Attempting to print a dictionary with a for loop however the values weren’t being printed out in the terminal and the code was running without errors.
-- *Solution 1:`items()` was missing from the end of the for loop.*
+- **Problem 1**: Attempting to print a dictionary with a `for` loop however the values weren’t being printed out in the terminal and the codes running without errors.
+- *Solution 1:`items()` was missing from the end of the for loop*
 - **Problem 2**: When validating the user input for the weather data. If user inputted a value over the range over the accepted values, causing the function to catch the input in the `else` code; then on the second input attempt entered an float number, it causes the app to crash due to trying to convert float into int. 
-- *Solution 2: Add a `try`/`except` loop to the `while not in range()` part of the function. Adding a `valueError` to the except; to catch any `valueError` responses that then processes a new user input. I then changed the float to an integer, as catching float errors was causing more bugs to occur than catching integers* 
+- ***Solution 2***: *Add a `try`/`except` loop to the `while not in range()` part of the function. Adding a `valueError` to the except; to catch any `valueError` responses that then processes a new user input. I then changed the float to an integer, as catching float errors was causing more bugs to occur than catching integers* 
 - **Problem 3**: Google Sheets API read limit of 300 requests per minute exceeding. Due to the loop sending individual requests for each row value, instead of collecting the information in one batch call.
 
 ![API bug warning](/assets/documentation/images.webp/bug-api-warning.webp)
 
 ![API bug code](/assets/documentation/images.webp/bug-api-code.webp)
 
-- *Solution 3: Use Pandas library, to collect all the data we need in one API call in the beginning, then we can manipulate the data easily within a pandas dataframe on the local system. Write funtion to a new one using pandas library functions*
+- ***Solution 3***: *Use Pandas library, to collect all the data we need in one API call in the beginning, then we can manipulate the data easily within a pandas dataframe on the local system. Write funtion to a new one using pandas library functions*
 - **Problem 4**: After updating my requirements.txt using a virtual environment, a warning message was arising in the terminal during the app running, which wasn't happening beforehand when testing. The warning message was about future deprecation of code syntax on a function used in gspread.
-- *Solution 4: Change the version of gspread used in the requirements.txt file from 5.10.0 to 5.9.0 - as was used in all testing*
+- ***Solution 4***: *Change the version of gspread used in the requirements.txt file from 5.10.0 to 5.9.0 - as was used in all testing*
 
 ![GSpread Version bug](/assets/documentation/images.webp/bug-version.webp)
 
@@ -155,7 +157,7 @@ If future features are added, for example a Menu System, where the user could ch
 - `pandas`: I used pandas to create a dataframe within the application, pandas, this solved a bug I had where I was making too many API calls to Google Sheets. With Pandas, I could make 1 API call and put all the data into one dataframe to later manipulate and then send 1 more API call later to update the spreadsheet accordingly. 
 - `plotext`: I used plotext to plot charts in my application. This library allows developers to plot charts within the terminal itself. Which was perfect for this application.
 - `blessed`: I used blessed to control terminal functions, i.e. to clear the Terminal for each new function call. This allows a simple and clean looking terminal space for the user.
-- `time`: I used time, to delay some function calls within the application. For example, when the user enters an input which causes an error, the application prints the reason why and then pauses for a few seconds before performing the function again. It enhances a good user experience.
+- `time`: I used time from the inbuild Python library to delay some function calls within the application. For example, when the user enters an input which causes an error, the application prints the reason why and then pauses for a few seconds before performing the function again. It enhances a good user experience.
 - `datetime`: I used datetime library to access the date for the instance of when the user is using the application. It is used for input validation and data manipulation.
 
 ## Credits 
@@ -189,4 +191,4 @@ Data - https://power.larc.nasa.gov/data-access-viewer/
 - [If Pandas dataframe is empty](https://stackoverflow.com/questions/36543606/python-pandas-check-if-dataframe-is-not-empty)
 
 ### Technology
-- [Tiny-img webp image converter](https://tiny-img.com/webp/). Used for README image conversion.
+- [Tiny-img](https://tiny-img.com/webp/) webp image converter. Used for README image conversion.
