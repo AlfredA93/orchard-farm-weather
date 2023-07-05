@@ -31,13 +31,13 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 - The app will then check with the spreadsheet where the data is stored whether there has been an entry for today already. The app only stores one data row per day.
 
 ![date check](/assets/documentation/images.webp/feature-datecheck.webp)
-- The user can input the millimeters of rainfall as a whole number. Any float numbers (decimal place numbers) or any inputs containing characters will be rejected and the user will be asked for a whole number. Please see [Testing](assets/documentation//TESTING.md) page for a more detailed explanation of this.
+- The user can input the millimeters of rainfall as a whole number. Any float numbers (decimal place numbers) or any inputs containing characters will be rejected and the user will be asked for a whole number. Please see [Testing](/TESTING.md) page for a more detailed explanation of this.
 ### Weather Data Inputs
 ![rainfall](/assets/documentation/images.webp/feature-rain.webp)
-- The user can input the lowest temperature that day as a whole number. Any float numbers (decimal place numbers) or any inputs containing characters will be rejected and the user will be asked for a whole number. Please see [Testing](assets/documentation//TESTING.md) page for a more detailed explanation of this.
+- The user can input the lowest temperature that day as a whole number. Any float numbers (decimal place numbers) or any inputs containing characters will be rejected and the user will be asked for a whole number. Please see [Testing](/TESTING.md) page for a more detailed explanation of this.
 
 ![low temperatures](/assets/documentation/images.webp/feature-lowtemp.webp)
-- The user can input the highest temperature that day as a whole number. Any float numbers (decimal place numbers) or any inputs containing characters will be rejected and the user will be asked for a whole number. Please see [Testing](assets/documentation//TESTING.md) page for a more detailed explanation of this.
+- The user can input the highest temperature that day as a whole number. Any float numbers (decimal place numbers) or any inputs containing characters will be rejected and the user will be asked for a whole number. Please see [Testing](/TESTING.md) page for a more detailed explanation of this.
 
 ![high temperatures](/assets/documentation/images.webp/feature-hightemp.webp)
 - The user will see the values they have entered to verify whether they would like these data values added to the spreadsheet records.
@@ -69,7 +69,7 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 - If they select yes, the chart is presented. If they select no, then the app progresses to the next stage without displaying the chart.
 
 ![temp chart](/assets/documentation/images.webp/chart-temps.webp)
-- The final part of the chart analysis is when the user is asked whether they are finished viewing the charts. If the user selects yes, then it clears the terminal and the thank you message is displayed. If the user selects no, then an encouraging message is displayed. If the user enters anything else, an error message appears. Please see [Testing](assets/documentation//TESTING.md) page for a more detailed explanation of this.
+- The final part of the chart analysis is when the user is asked whether they are finished viewing the charts. If the user selects yes, then it clears the terminal and the thank you message is displayed. If the user selects no, then an encouraging message is displayed. If the user enters anything else, an error message appears. Please see [Testing](/TESTING.md) page for a more detailed explanation of this.
 
 ![finish question](/assets/documentation/images.webp/finish-question.webp)
 
@@ -82,7 +82,7 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 ### Input Validation
 
 - All inputs have input validators, which ask the user for either of the set words (yes or no), or an integer (whole number). 
-- Please see [Testing](assets/documentation//TESTING.md) page for more detailed explanation of this.
+- Please see [Testing](/TESTING.md) page for more detailed explanation of this.
 
 ### Potential Future Features
 - Add a menu system at the front of the application, so users can decide whether they wish to just view charts or enter data
@@ -96,7 +96,7 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 ![CI python linter pass](/assets/documentation/images.webp/python-linter-clear.webp)
 
 ------
-### For Manual Testing details, visit [Testing](assets/documentation//TESTING.md) page.
+### For Manual Testing details, visit [Testing](/TESTING.md) page.
 ------
 
 ### Bugs
