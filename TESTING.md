@@ -11,7 +11,7 @@ Every input in the application needs to have input validation, to check the user
 | Input                      | Data Type Required | Format        | Range Start  | Range End    | 
 | :------------------------- | :----------------: | :--------:    | :---------:  | :----------: |
 | Date                       | Date String        | YYYY-MM-DD    | Today only   | Today only   |
-| Date Check                 | String             | yes or no     |              |              |
+| Date Check                 | String             | yes or no     | no           | yes          |
 | Rainfall                   | Integer            | whole number  | 0            | 450          |
 | Low Temperature            | Integer            | whole number  | -40          | 50           |
 | High Temperature           | Integer            | whole number  | -40          | 50           |
