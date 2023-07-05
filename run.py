@@ -102,6 +102,8 @@ def new_weather(new_row, temp, range1, range2, record_num):
     - Rainfall in mm
     - Lowest temperature today
     - Highest temperature today
+    All inputs must be an integer and within the ranges in parameters.
+    The 2nd while loop is used when an initial input outside range is made.
     """
     print(TERM.clear)
     title()
