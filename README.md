@@ -181,9 +181,7 @@ Code credits are commented within the code, with a respective number referencing
 
 ### Helpsheets and Learning Resources
 
-- My mentor Alex was absolutely brilliant in his support throughout this project. Continually suggesting ways to continue the development of the project and helping to find suitable libraries for a terminal based application.
-
-- I researched various libraries a lot for this project. I learned so much from the brilliant documentation online. Below are the links for the main sources of learning for this project.
+My mentor Alex was absolutely brilliant in his support throughout this project. Continually suggesting ways to continue the development of the project and helping to find suitable libraries for a terminal based application. I researched various libraries a lot for this project. I learned so much from the brilliant documentation online. Below are the links for the main sources of learning for this project.
 
 - [Try, Except, Else explainer](https://www.101computing.net/number-only/)
 - [Gspread documentation](https://buildmedia.readthedocs.org/media/pdf/gspread/latest/gspread.pdf)
