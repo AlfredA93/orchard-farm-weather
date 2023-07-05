@@ -197,3 +197,4 @@ If future features are added, for example, a Menu System, where the user could c
 
 ### Technology
 - [Tiny-img](https://tiny-img.com/webp/) webp image converter. Used for README image conversion.
+- [Grammarly](https://app.grammarly.com/) for checking grammar across README and TESTING documents.
