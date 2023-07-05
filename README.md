@@ -28,7 +28,7 @@ Orchard Farm Weather Data Collection is a terminal based data input application.
 - Here the user can enter today's date.
 
 ![date](/assets/documentation/images.webp/feature-date.webp)
-- The app will then check with the spreadsheet where the data is stored whether there has been an entry for today already. The app only stores one data row per day.
+- The app will then check with the spreadsheet where the data is stored whether there has been an entry for today already. The app only stores one data row per day. If the user types yes, then the existing data row will be deleted and a new data row can be added for this date.
 
 ![date check](/assets/documentation/images.webp/feature-datecheck.webp)
 - The user can input the millimeters of rainfall as a whole number. Any float numbers (decimal place numbers) or any inputs containing characters will be rejected and the user will be asked for a whole number. Please see [Testing](/TESTING.md) page for a more detailed explanation of this.
