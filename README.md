@@ -163,16 +163,19 @@ If future features are added, for example a Menu System, where the user could ch
 ## Credits 
 ------
 ### **Code**
-- Code Institute for the deployment terminal templates.
-Data - https://power.larc.nasa.gov/data-access-viewer/
+1. Code Institute for the deployment terminal templates.
 
-[Italics in print statements](https://python-forum.io/thread-27264.html)
+2. Historical Weather Data came from [NASA's Weather and Energy Data](https://power.larc.nasa.gov/data-access-viewer/) website.
 
-- [Select rows from a dataframe](https://stackoverflow.com/questions/17071871/how-do-i-select-rows-from-a-dataframe-based-on-column-values)
+3. [Italics in print statements](https://python-forum.io/thread-27264.html)
 
-![Description](photo-source)
+4. [Select rows from a dataframe](https://stackoverflow.com/questions/17071871/how-do-i-select-rows-from-a-dataframe-based-on-column-values)
 
-- [UK Weather Records](https://en.wikipedia.org/wiki/United_Kingdom_weather_records)
+5. [Append data to Pandas Dataframe](https://sparkbyexamples.com/pandas/how-to-append-row-to-pandas-dataframe/?expand_article=1)
+
+6. [Delete row in dataframe](https://stackoverflow.com/questions/26921651/how-to-delete-the-last-row-of-data-of-a-pandas-dataframe)
+
+7. [UK Weather Records](https://en.wikipedia.org/wiki/United_Kingdom_weather_records)
 
 ### Helpsheets and Learning Resources
 
@@ -182,6 +185,7 @@ Data - https://power.larc.nasa.gov/data-access-viewer/
 
 - [Try, Except, Else explainer](https://www.101computing.net/number-only/)
 - [Gspread documentation](https://buildmedia.readthedocs.org/media/pdf/gspread/latest/gspread.pdf)
+- [Pandas documentation](https://pandas.pydata.org/docs/)
 - [Plotext documentation](https://pypi.org/project/plotext/)
 - [Plotext explainer](https://www.youtube.com/watch?v=9NSo6hQRqqc&t=215s)
 - [Looping through a dictionary](https://www.w3schools.com/python/gloss_python_loop_dictionary_items.asp)
@@ -189,6 +193,7 @@ Data - https://power.larc.nasa.gov/data-access-viewer/
 - [Converting date to number](https://www.geeksforgeeks.org/python-convert-day-number-to-date-in-particular-year/)
 - [Python sleep attribute](https://realpython.com/python-sleep/)
 - [If Pandas dataframe is empty](https://stackoverflow.com/questions/36543606/python-pandas-check-if-dataframe-is-not-empty)
+- [Markdown tables](https://www.codecademy.com/resources/docs/markdown/tables)
 
 ### Technology
 - [Tiny-img](https://tiny-img.com/webp/) webp image converter. Used for README image conversion.

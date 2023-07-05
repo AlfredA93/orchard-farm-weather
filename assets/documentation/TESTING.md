@@ -33,35 +33,36 @@ I will now go through one by one to showcase how these validations appear within
     - If the user enters a date which isn't today, the error will still arise
     
 
-![](/assets/documentation/testimages.webp/date-test-char.webp)
-![](/assets/documentation/testimages.webp/date-test-otherdate.webp)
-![](/assets/documentation/testimages.webp/date-check-test.webp)
+![Character test on Date input](/assets/documentation/testimages.webp/date-test-char.webp)
+![Old or future Date on Date input](/assets/documentation/testimages.webp/date-test-otherdate.webp)
+![Character in Date Check Question](/assets/documentation/testimages.webp/date-check-test.webp)
 
 - Weather data inputs
     - All weather data inputs must be integers (whole numbers).
     - No characters are allowed.
     - It needs to be within the expected range for 'record breaking weather', as shown in the table Range columns above.
+    - All weather type inputs use the same function, only the parameters change, hence the consistent layout and error messages arising.
     - In the images below, the red/orange line indicates where a float (decimal) number has been used. The green line indicates where the input is a integer, but it is outside the expected range. The blue line indicates where characters were used.
 
-![](/assets/documentation/testimages.webp/rain-test-all.webp)
-![](/assets/documentation/testimages.webp/lowtemp-test-all.webp)
-![](/assets/documentation/testimages.webp/hightemp-test-all.webp)
+![Errors on rain input](/assets/documentation/testimages.webp/rain-test-all.webp)
+![Errors on low temp](/assets/documentation/testimages.webp/lowtemp-test-all.webp)
+![Errors on high temp](/assets/documentation/testimages.webp/hightemp-test-all.webp)
 
 - If a user initially inputs an integer outside the expected range, this is caught by an `else` statement, and then with the use of a `while` loop, the user is repeatedly asked for an input until an integer within the correct range is used. This is show in the second image below this paragraph.
 
-![](/assets/documentation/testimages.webp/lowtemp-test-range.webp)
-![](/assets/documentation/testimages.webp/test-code-example.webp)
+![Out of range, then decimal input](/assets/documentation/testimages.webp/lowtemp-test-range.webp)
+![Code](/assets/documentation/testimages.webp/test-code-example.webp)
 
 - String inputs - yes or no answers. 
     - These are often questions asked to the user to govern how the app should progress.
     - These must be character only, either yes or no.
     - Capitals may be used within the yes or no inputs. As shown in the second image below.
 
-![](/assets/documentation/testimages.webp/send-test.webp)
-![](/assets/documentation/testimages.webp/send-test-yes.webp)
-![](/assets/documentation/testimages.webp/chart-qu-test.webp)
-![](/assets/documentation/testimages.webp/chart-qu-test-2.webp)
-![](/assets/documentation/testimages.webp/finish-test.webp)
+![Send Data Error](/assets/documentation/testimages.webp/send-test.webp)
+![Capitals on string input](/assets/documentation/testimages.webp/send-test-yes.webp)
+![Chart Question Error](/assets/documentation/testimages.webp/chart-qu-test.webp)
+![Second Chart Question Error](/assets/documentation/testimages.webp/chart-qu-test-2.webp)
+![Final Question character error](/assets/documentation/testimages.webp/finish-test.webp)
 
 ### CI PEP8 Python Linter
 - I checked all of my python code through the Code Institute Python Linter, which came back all clear.

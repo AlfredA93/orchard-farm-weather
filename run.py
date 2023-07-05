@@ -43,7 +43,7 @@ def new_date(new_row):
     print("")
     while True:
         print("Please enter the date today.")
-        print("\x1B[3mFormat: YYYY-MM-DD\x1B[23m")  # Credit 2 in README.md
+        print("\x1B[3mFormat: YYYY-MM-DD\x1B[23m")  # Credit 3 in README.md
         date_str = input("Enter today's date here:\n")
         if date_str != datetime.today().date().strftime('%Y-%m-%d'):
             print("Error - incorrect date entered. Restarting...")
@@ -82,7 +82,7 @@ def check_date(choice):
         print("Do you want to delete the existing entry and start a new one?")
         delete_row = input("Type 'yes' or 'no'.\n")
         if delete_row.lower() == "yes":
-            DF.drop(DF.index[-1], inplace=True)  # Credit 1 - See README.md
+            DF.drop(DF.index[-1], inplace=True)  # Credit 6 in README.md
         elif delete_row.lower() == 'no':
             choice = "no"
             return choice
@@ -177,7 +177,7 @@ def send_new_row(new_row):
     """
     This function updates the spreadsheet with a new row.
     """
-    DF.loc[len(DF)] = new_row  # Credit: Code from sparkbyexmaples.com
+    DF.loc[len(DF)] = new_row  # Credit 5 in README
     print("Sending data to spreadsheet.")
 
     SHEET.worksheet('data').update(
@@ -213,7 +213,7 @@ def find_rows(weather_type):
     print("")
 
     day_of_year = int(datetime.now().strftime('%j'))
-    all_rows = DF.loc[DF['DOY'] == day_of_year]
+    all_rows = DF.loc[DF['DOY'] == day_of_year]  # Credit 4 in README.md
     yrs = all_rows["YEAR"].tolist()
     rainfall = all_rows["RAINFALL"].tolist()
     min_temp = all_rows["TEMP_MIN"].tolist()
